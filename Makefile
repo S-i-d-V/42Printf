@@ -37,11 +37,11 @@ RM=	rm -rf
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(INCLUDE)
+$(NAME): objs $(INCLUDE)
 	@ar rc $(NAME) $(OBJS)
 	@ranlib $(NAME)
 
-$(OBJS):
+objs:
 	gcc $(FLAGS) -c $(SRCS)
 
 clean:
