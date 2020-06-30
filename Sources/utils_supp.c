@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_supp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 01:11:43 by ugotheveny        #+#    #+#             */
-/*   Updated: 2020/06/25 01:21:35 by ugotheveny       ###   ########.fr       */
+/*   Updated: 2020/06/30 14:34:51 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,11 @@ void	ft_puthup(unsigned int nb)
 {
 	char *base;
 
-	base = "0123456789abcdef";
+	base = "0123456789ABCDEF";
 	if (nb < 0)
 		nb = ft_itoui(nb);
 	if (nb >= 16)
-		ft_dtohup(nb / 16);
+		ft_puthup(nb / 16);
 		ft_putchar(base[(nb % 16)]);
 }
 
@@ -65,4 +65,20 @@ void	ft_putui(unsigned int nb)
 	}
 	else
 		ft_putchar(nb + 48);
+}
+
+int		ft_checkflag(char c)
+{
+	int i;
+	char *flags;
+
+	i = 0;
+	flags = "csdiuxX%";
+	while (flags[i])
+	{
+		if (flags[i] == c)
+			return (i);
+		i++;
+	}
+	return (-1);
 }

@@ -6,13 +6,14 @@
 /*   By: ugtheven <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 12:00:14 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/06/30 12:02:37 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/06/30 13:46:56 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Include/ft_printf.h"
 
-void	flag_prc()
+void	flag_prc(va_list *args)
 {
+	(void)args;
 	write(1, "%", 1);
 }
