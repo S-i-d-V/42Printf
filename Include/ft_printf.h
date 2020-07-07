@@ -16,6 +16,7 @@ void	flag_s(va_list *args);
 void	flag_u(va_list *args);
 void	flag_x(va_list *args);
 void	flag_prc(va_list *args);
+void    flag_p(va_list *args);
 void	flag_xx(va_list *args);
 
 //Prototypes fonctions libft;
