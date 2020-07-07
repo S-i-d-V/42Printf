@@ -6,7 +6,7 @@
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 13:53:16 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/06/30 16:11:37 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/07/07 13:39:34 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_printf(const char *format, ...)
 {
-	void (*tabFunc[8]) (va_list *) =  {flag_c, flag_s, flag_d, flag_i, flag_u, flag_x, flag_xx, flag_prc};
+	void (*tabFunc[9]) (va_list *) =  {flag_c, flag_s, flag_p, flag_d, flag_i, flag_u, flag_x, flag_xx, flag_prc};
 	va_list list;
 	int i;
 	int tmpIndex;

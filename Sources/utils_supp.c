@@ -6,7 +6,7 @@
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 01:11:43 by ugotheveny        #+#    #+#             */
-/*   Updated: 2020/06/30 16:17:54 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/07/07 13:42:47 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ unsigned int	ft_itoui(unsigned int nb)
 	return (res);
 }
 
-void		ft_puthlow(unsigned int nb)
+void		ft_puthlow(unsigned long long nb)
 {
 	char *base;
 
@@ -38,7 +38,7 @@ void		ft_puthlow(unsigned int nb)
 		ft_putchar(base[(nb % 16)]);
 }
 
-void	ft_puthup(unsigned int nb)
+void	ft_puthup(unsigned long long nb)
 {
 	char *base;
 
@@ -73,7 +73,7 @@ int		ft_checkflag(char c)
 	char *flags;
 
 	i = 0;
-	flags = "csdiuxX%";
+	flags = "cspdiuxX%";
 	while (flags[i])
 	{
 		if (flags[i] == c)

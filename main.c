@@ -41,4 +41,5 @@ int main()
 	ft_printf("MOI : '%p'\n", &nb);
 	printf("PTF : '%p'\n\n", &nb);
 
+	return (0);
 }

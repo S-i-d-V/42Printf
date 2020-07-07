@@ -27,8 +27,8 @@ void	ft_putstr(char *str);
 
 //Prototypes fonctions supp;
 unsigned int	ft_itoui(unsigned int nb);
-void		ft_puthlow(unsigned int nb);
-void		ft_puthup(unsigned int nb);
+void		ft_puthlow(unsigned long long nb);
+void		ft_puthup(unsigned long long nb);
 void		ft_putui(unsigned int nb);
 int			ft_checkflag(char c);
 
