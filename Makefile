@@ -1,45 +1,20 @@
 NAME= libftprintf.a
 
-SOURCES=	flag_c.c \
-		flag_d.c \
-		flag_i.c \
-		flag_s.c \
-		flag_u.c \
-		flag_x.c \
-		flag_xx.c \
-		flag_prc.c \
-		utils_libft.c \
-		utils_supp.c \
-		ft_printf.c \
+SRCS=	Sources/*.c
 
-OBJS=		flag_c.o \
-		flag_d.o \
-		flag_i.o \
-		flag_s.o \
-		flag_u.o \
-		flag_x.o \
-		flag_xx.o \
-		flag_prc.o \
-		utils_libft.o \
-		utils_supp.o \
-		ft_printf.o \	
+OBJS=	*.o
 
-HEADER= ft_printf.h
-
-SRCS_PATH= 		Sources/
-INCLUDE_PATH=		Include/
-
-SRCS=		$(addprefix $(SRCS_PATH), $(SOURCES))
-INCLUDE=	$(addprefix $(INCLUDE_PATH), $(HEADER))
+HEADER= Include/ft_printf.h
 	
 FLAGS= 	-Wall -Werror -Wextra
+
 RM=	rm -rf
 
 all: $(NAME)
 
-$(NAME): objs $(INCLUDE)
-	@ar rc $(NAME) $(OBJS)
-	@ranlib $(NAME)
+$(NAME): objs $(HEADER)
+	ar rc $(NAME) $(OBJS)
+	ranlib $(NAME)
 
 objs:
 	gcc $(FLAGS) -c $(SRCS)
@@ -49,5 +24,12 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
+
+reset:
+	rm -rf test *.o $(NAME)
+
+test: all
+	gcc main.c $(NAME) -o test
+	./test
 
 re: fclean all
