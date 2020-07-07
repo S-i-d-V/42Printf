@@ -29,7 +29,7 @@ reset:
 	rm -rf test *.o $(NAME)
 
 test: all
-	gcc main.c $(NAME) -o test
+	gcc main.c  $(NAME) -o test
 	./test
 
 re: fclean all

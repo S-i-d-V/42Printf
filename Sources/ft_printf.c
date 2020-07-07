@@ -6,7 +6,7 @@
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 13:53:16 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/07/07 13:39:34 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/07/07 16:29:48 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,16 @@
 
 int		ft_printf(const char *format, ...)
 {
-	void (*tabFunc[9]) (va_list *) =  {flag_c, flag_s, flag_p, flag_d, flag_i, flag_u, flag_x, flag_xx, flag_prc};
-	va_list list;
+	void (*tabFunc[9]) (va_list *, t_ptrf *) =  {flag_c, flag_s, flag_p, flag_d, flag_i, flag_u, flag_x, flag_xx, flag_prc};
+	va_list args;
+	t_ptrf struc;
 	int i;
 	int tmpIndex;
 
 	i = 0;
 	tmpIndex = 0;
-	va_start(list, format);
+	innit_struct(&struc);
+	va_start(args, format);
 	while (format[i])
 	{
 		if (format[i] == '%')
@@ -29,12 +31,12 @@ int		ft_printf(const char *format, ...)
 			i++;
 			tmpIndex = ft_checkflag(format[i]);
 			if (tmpIndex != -1)
-				(*tabFunc[tmpIndex]) (&list);
+				(*tabFunc[tmpIndex]) (&args, &struc);
 		}
 		else
-			write(1, &format[i], 1);
+			ft_putchar(format[i], &struc);
 		i++;
 	}
-	va_end(list);
-	return (i);
+	va_end(args);
+	return (struc.ret);
 }

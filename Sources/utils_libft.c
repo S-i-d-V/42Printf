@@ -6,18 +6,19 @@
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 01:08:18 by ugotheveny        #+#    #+#             */
-/*   Updated: 2020/06/30 14:36:38 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/07/07 16:16:15 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Include/ft_printf.h"
 
-void	ft_putchar(char c)
+void	ft_putchar(char c, t_ptrf *struc)
 {
 	write(1, &c, 1);
+	struc->ret++;
 }
 
-void	ft_putnbr(int nb)
+void	ft_putnbr(int nb, t_ptrf *struc)
 {
 	if (nb == -2147483648)
 		write(1, "-2147483648", 11);
@@ -27,15 +28,27 @@ void	ft_putnbr(int nb)
 	{
 		nb = nb * -1;
 		write(1, "-", 1);
-		ft_putnbr(nb);
+		ft_putnbr(nb, struc);
 	}
 	else if (nb >= 10)
 	{
-		ft_putnbr(nb / 10);
-		ft_putchar((nb % 10) + 48);
+		ft_putnbr(nb / 10, struc);
+		ft_putchar((nb % 10) + 48, struc);
 	}
 	else
-		ft_putchar(nb + 48);
+		ft_putchar(nb + 48, struc);
+}
+
+void	ft_putstr(char *str, t_ptrf *struc)
+{
+	int i;
+
+	i = 0;
+	while(str[i])
+	{
+		ft_putchar(str[i], struc);
+		i++;
+	}
 }
 
 int		ft_strlen(char *str)
@@ -46,16 +59,4 @@ int		ft_strlen(char *str)
 	while (str[i])
 		i++;
 	return (i);
-}
-
-void	ft_putstr(char *str)
-{
-	int i;
-
-	i = 0;
-	while (str[i])
-	{
-		ft_putchar(str[i]);
-		i++;
-	}
 }

@@ -7,6 +7,8 @@ int main()
 	int nb_neg;
 	unsigned int unb;
 	char *alpha;
+	int ret_moi = 0;
+	int ret_ptf = 0;
 
 	nb = 124;
 	nb_neg = -178;
@@ -14,32 +16,43 @@ int main()
 	alpha = "Test printf";
 
 	ft_printf("Test CHAR :\n");
-	ft_printf("MOI : '%c'\n", alpha[0]);
-	printf("PTF : '%c'\n\n", alpha[0]);
+	ret_moi = ft_printf("MOI : '%c'\n", alpha[0]);
+	ret_ptf = printf("PTF : '%c'\n", alpha[0]);
+	printf("PTF : %d | MOI : %d\n\n", ret_ptf, ret_moi);
 
 	ft_printf("Test STRING :\n");
-	ft_printf("MOI : '%s'\n", alpha);
-	printf("PTF : '%s'\n\n", alpha);
+	ret_moi = ft_printf("MOI : '%s'\n", alpha);
+	ret_ptf = printf("PTF : '%s'\n", alpha);
+	printf("PTF : %d | MOI : %d\n\n", ret_ptf, ret_moi);
 
 	ft_printf("Test INT :\n");
-	ft_printf("MOI : '%d'\n", nb);
-	printf("PTF : '%d'\n\n", nb);
+	ret_moi = ft_printf("MOI : '%d'\n", nb);
+	ret_ptf = printf("PTF : '%d'\n", nb);
+	printf("PTF : %d | MOI : %d\n\n", ret_ptf, ret_moi);
 
 	ft_printf("Test UNSIGNED:\n");
-	ft_printf("MOI : '%u'\n", nb_neg);
-	printf("PTF : '%u'\n\n", nb_neg);
+	ret_moi = ft_printf("MOI : '%u'\n", nb_neg);
+	ret_ptf = printf("PTF : '%u'\n", nb_neg);
+	printf("PTF : %d | MOI : %d\n\n", ret_ptf, ret_moi);
 
 	ft_printf("Test HEXA :\n");
-	ft_printf("MOI : '%x' | '%X'\n", nb_neg, nb);
-	printf("PTF : '%x' | '%X'\n\n", nb_neg, nb);
+	ret_moi = ft_printf("MOI : '%x' | '%X'\n", nb_neg, nb);
+	ret_ptf =printf("PTF : '%x' | '%X'\n", nb_neg, nb);
+	printf("PTF : %d | MOI : %d\n\n", ret_ptf, ret_moi);
 
 	ft_printf("Test %% :\n");
-	ft_printf("MOI : '%%'\n");
-	printf("PTF : '%%'\n\n");
+	ret_moi = ft_printf("MOI : '%%'\n");
+	ret_ptf = printf("PTF : '%%'\n");
+	printf("PTF : %d | MOI : %d\n\n", ret_ptf, ret_moi);
 
 	ft_printf("Test PTR:\n");
-	ft_printf("MOI : '%p'\n", &nb);
-	printf("PTF : '%p'\n\n", &nb);
+	ret_moi = ft_printf("MOI : '%p'\n", &nb);
+	ret_ptf = printf("PTF : '%p'\n", &nb);
+	printf("PTF : %d | MOI : %d\n\n", ret_ptf, ret_moi);
 
+	ft_printf("Return :\n");
+	ret_moi = ft_printf("MOI : %c | %s | %p | %d | %i | %u | %x | %X | %%\n", alpha[0], alpha, &nb, nb, nb, nb, nb, nb);
+	ret_ptf = printf("PTF : %c | %s | %p | %d | %i | %u | %x | %X | %%\n", alpha[0], alpha, &nb, nb, nb, nb, nb, nb);
+	printf("PTF : %d | MOI : %d\n\n", ret_ptf, ret_moi);
 	return (0);
 }
