@@ -6,7 +6,7 @@
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 01:11:43 by ugotheveny        #+#    #+#             */
-/*   Updated: 2020/07/08 11:30:44 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/07/08 12:10:29 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void		ft_puthlow(unsigned long long nb, t_prtf *struc)
 {
-	char *base;
+	char	*base;
 
 	base = "0123456789abcdef";
 	if (nb >= 16)
@@ -22,9 +22,9 @@ void		ft_puthlow(unsigned long long nb, t_prtf *struc)
 	ft_putchar(base[(nb % 16)], struc);
 }
 
-void	ft_puthup(unsigned long long nb, t_prtf *struc)
+void		ft_puthup(unsigned long long nb, t_prtf *struc)
 {
-	char *base;
+	char	*base;
 
 	base = "0123456789ABCDEF";
 	if (nb >= 16)
@@ -32,7 +32,7 @@ void	ft_puthup(unsigned long long nb, t_prtf *struc)
 	ft_putchar(base[(nb % 16)], struc);
 }
 
-void	ft_putui(unsigned int nb, t_prtf *struc)
+void		ft_putui(unsigned int nb, t_prtf *struc)
 {
 	if (nb == 0)
 		ft_putchar('0', struc);
@@ -45,10 +45,10 @@ void	ft_putui(unsigned int nb, t_prtf *struc)
 		ft_putchar(nb + 48, struc);
 }
 
-int		ft_checktype(char c)
+int			ft_checktype(char c)
 {
-	int i;
-	char *flags;
+	int		i;
+	char	*flags;
 
 	i = 0;
 	flags = "cspdiuxX%";
