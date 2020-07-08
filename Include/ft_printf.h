@@ -5,10 +5,18 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
+//Definition d'un nouveau types; (Structure);
 typedef struct	s_prtf
 {
+	//Index pour parcour le format + valeur de retour;
 	int i;
 	int ret;
+	//Partie flag (A reset);
+	int dot;	// . (d,i,u,x,X) : Nb mini de char a printf || (s,p) : Nb max de char a print;
+	int zero;	// 0 Rempli de zero (Se precise avec un nombre ou une wildcard);
+	int wc;		// * Precise la largeur via un argument en parametre;
+	int min;	// 9 Nombre pour preciser la largeur
+	int padd;	// - ???
 }				t_prtf;
 
 //Prototype fonction ft_printf;
