@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_struct.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 11:30:13 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/07/08 12:15:52 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/07/09 01:08:57 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,18 @@ void	innit_struct(t_prtf *struc)
 {
 	struc->i = 0;
 	struc->ret = 0;
-	struc->dot = 0;
+	struc->pad = 0;
 	struc->zero = 0;
 	struc->wc = 0;
-	struc->min = 0;
-	struc->padd = 0;
+	struc->prec = 0;
+	struc->fill = 0;
+}
+
+void	reset_flags(t_prtf *struc)
+{
+	struc->pad = 0;
+	struc->zero = 0;
+	struc->wc = 0;
+	struc->prec = 0;
+	struc->fill = 0;
 }

@@ -3,48 +3,60 @@
 /*                                                        :::      ::::::::   */
 /*   utils_parsing.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 13:30:32 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/07/08 13:32:22 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/07/09 01:16:44 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Include/ft_printf.h"
 
-int			ft_checktype(char c)
+void		ft_parse_pad(char c, t_prtf *struc)
 {
-	int		i;
-	char	*flags;
-
-	i = 0;
-	flags = "cspdiuxX%";
-	while (flags[i])
+	struc->pad = (c == '-' ? 1 : 0);
+	if (struc->pad)
 	{
-		if (flags[i] == c)
-			return (i);
-		i++;
+		struc->fill  = ' ';
+		struc->i++;
 	}
-	return (-1);
 }
 
-t_tab		g_tab[9] = {
-	{'c', &conv_c}, {'s', &conv_s}, {'p', &conv_p},
-	{'d', &conv_d}, {'i', &conv_i}, {'u', &conv_u},
-	{'x', &conv_x}, {'X', &conv_xx}, {'%', &conv_prc}
-};
-
-void		ft_parse(const char *format, va_list *args, t_prtf *struc)
+void		ft_parse_zero(char c, t_prtf *struc)
 {
-	while (format[struc->i])
+	struc->zero = (c == '0' ? 1 : 0);
+	if (struc->zero)
 	{
-		if (format[struc->i] == '%')
-		{
-			struc->i++;
-			g_tab[ft_checktype(format[struc->i])].tabFunc(args, struc);
-		}
-		else
-			ft_putchar(format[struc->i], struc);
+		struc->fill  = '0';
 		struc->i++;
+	}
+}
+
+void		ft_parse_precision(const char *format, t_prtf *struc, va_list *args)
+{
+	if (format[struc->i] == '.')
+	{
+		struc->i++;
+		if (format[struc->i] == '*')
+			struc->prec = va_arg(*args, int);
+		else
+		{
+			while (ft_isdigit(format[struc->i]))
+			{
+				struc->prec = struc->prec * 10 + format[struc->i];
+				struc->i++;
+			}
+		}
+	}
+}
+
+void		ft_parse(const char *format, t_prtf *struc, va_list *args)
+{
+	reset_flags(struc);
+	while (ft_checktype(format[struc->i]) == -1)
+	{
+		ft_parse_pad(format[struc->i], struc);
+		ft_parse_zero(format[struc->i], struc);
+		ft_parse_precision(format, struc, args);
 	}
 }

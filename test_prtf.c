@@ -24,10 +24,4 @@ int	main()
 	printf("-2d -> %-2d | %-2d -> Rien ?\n", nb, nb_neg);
 	printf("-*d -> %-*d | %-*d -> Rien ?\n", 5, nb, 5, nb_neg);
 	printf("-d  -> %-d | %-d -> Rien ?\n\n", nb, nb_neg);
-
-	printf("WC :\n");
-	printf("*5d -> %*5d | %*5d -> Rien ??\n", nb, nb_neg);
-	printf("*2d -> %*2d | %*2d -> Rien ?\n", nb, nb_neg);
-	printf("**d -> %**d | %**d -> Rien ?\n", 5, nb, 5, nb_neg);
-	printf("*d  -> %*d | %*d -> Rien ?\n\n", nb, nb_neg);
 }

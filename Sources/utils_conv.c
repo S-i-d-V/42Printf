@@ -1,16 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_print.c                                      :+:      :+:    :+:   */
+/*   utils_conv.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 01:11:43 by ugotheveny        #+#    #+#             */
-/*   Updated: 2020/07/08 13:31:30 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/07/09 01:16:44 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Include/ft_printf.h"
+
+int			ft_checktype(char c)
+{
+	int		i;
+	char	*flags;
+
+	i = 0;
+	flags = "cspdiuxX%";
+	while (flags[i])
+	{
+		if (flags[i] == c)
+			return (i);
+		i++;
+	}
+	return (-1);
+}
 
 void		ft_puthlow(unsigned long long nb, t_prtf *struc)
 {

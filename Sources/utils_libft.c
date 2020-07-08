@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_libft.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 01:08:18 by ugotheveny        #+#    #+#             */
-/*   Updated: 2020/07/08 12:09:34 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/07/09 01:08:57 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,11 @@ int		ft_strlen(char *str)
 	while (str[i])
 		i++;
 	return (i);
+}
+
+int		ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }
