@@ -19,6 +19,14 @@ typedef struct	s_prtf
 	int padd;	// - ???
 }				t_prtf;
 
+//Definition d'une structure pour declarer le tableau de fonction;
+typedef struct	s_tab
+{
+	char c;
+	void (*tabFunc)(va_list *, t_prtf *);
+}				t_tab;
+
+
 //Prototype fonction ft_printf;
 int	ft_printf(const char *format, ...);
 
