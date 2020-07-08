@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flag_p.c                                           :+:      :+:    :+:   */
+/*   conv_p.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 11:51:48 by ugotheveny        #+#    #+#             */
-/*   Updated: 2020/07/07 16:16:15 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/07/07 22:47:04 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Include/ft_printf.h"
 
-void	flag_p(va_list *args, t_ptrf *struc)
+void	conv_p(va_list *args, t_prtf *struc)
 {
 	unsigned long long n;
 

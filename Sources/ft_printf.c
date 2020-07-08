@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 13:53:16 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/07/07 16:29:48 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/07/07 22:47:04 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int		ft_printf(const char *format, ...)
 {
-	void (*tabFunc[9]) (va_list *, t_ptrf *) =  {flag_c, flag_s, flag_p, flag_d, flag_i, flag_u, flag_x, flag_xx, flag_prc};
+	void (*tabFunc[9]) (va_list *, t_prtf *) =  {conv_c, conv_s, conv_p, conv_d, conv_i, conv_u, conv_x, conv_xx, conv_prc};
 	va_list args;
-	t_ptrf struc;
+	t_prtf struc;
 	int i;
 	int tmpIndex;
 

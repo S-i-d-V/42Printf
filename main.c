@@ -10,10 +10,12 @@ int main()
 	int ret_moi = 0;
 	int ret_ptf = 0;
 
-	nb = 124;
-	nb_neg = -178;
+	nb = 46786;
+	nb_neg = -1;
 	unb = 4365;
 	alpha = "Test printf";
+
+	ft_printf("TEST CONV PRINTF :\n\n");
 
 	ft_printf("Test CHAR :\n");
 	ret_moi = ft_printf("MOI : '%c'\n", alpha[0]);
@@ -51,8 +53,8 @@ int main()
 	printf("PTF : %d | MOI : %d\n\n", ret_ptf, ret_moi);
 
 	ft_printf("Return :\n");
-	ret_moi = ft_printf("MOI : %c | %s | %p | %d | %i | %u | %x | %X | %%\n", alpha[0], alpha, &nb, nb, nb, nb, nb, nb);
-	ret_ptf = printf("PTF : %c | %s | %p | %d | %i | %u | %x | %X | %%\n", alpha[0], alpha, &nb, nb, nb, nb, nb, nb);
-	printf("PTF : %d | MOI : %d\n\n", ret_ptf, ret_moi);
+	ret_moi = ft_printf("MOI : %% | %c | %s | %p | %d | %i | %u | %x | %X\n", alpha[0], alpha, &nb, nb, nb, nb, nb_neg, nb);
+	ret_ptf = printf("MOI : %% | %c | %s | %p | %d | %i | %u | %x | %X\n", alpha[0], alpha, &nb, nb, nb, nb, nb_neg, nb);
+	printf("PTF : %d | MOI : %d\n", ret_ptf, ret_moi);
 	return (0);
 }

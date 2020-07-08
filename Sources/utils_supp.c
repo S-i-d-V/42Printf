@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   utils_supp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 01:11:43 by ugotheveny        #+#    #+#             */
-/*   Updated: 2020/07/07 16:37:24 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/07/07 22:47:04 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Include/ft_printf.h"
 
-void		ft_puthlow(unsigned long long nb, t_ptrf *struc)
+void		ft_puthlow(unsigned long long nb, t_prtf *struc)
 {
 	char *base;
 
@@ -22,7 +22,7 @@ void		ft_puthlow(unsigned long long nb, t_ptrf *struc)
 	ft_putchar(base[(nb % 16)], struc);
 }
 
-void	ft_puthup(unsigned long long nb, t_ptrf *struc)
+void	ft_puthup(unsigned long long nb, t_prtf *struc)
 {
 	char *base;
 
@@ -32,7 +32,7 @@ void	ft_puthup(unsigned long long nb, t_ptrf *struc)
 	ft_putchar(base[(nb % 16)], struc);
 }
 
-void	ft_putui(unsigned int nb, t_ptrf *struc)
+void	ft_putui(unsigned int nb, t_prtf *struc)
 {
 	if (nb == 0)
 		ft_putchar('0', struc);
@@ -61,7 +61,7 @@ int		ft_checkflag(char c)
 	return (-1);
 }
 
-void	innit_struct(t_ptrf *struc)
+void	innit_struct(t_prtf *struc)
 {
 	struc->ret = 0;
 }

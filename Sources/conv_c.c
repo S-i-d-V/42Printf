@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flag_x.c                                           :+:      :+:    :+:   */
+/*   conv_c.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/25 01:23:30 by ugotheveny        #+#    #+#             */
-/*   Updated: 2020/07/07 16:25:19 by ugtheven         ###   ########.fr       */
+/*   Created: 2020/06/25 01:23:04 by ugotheveny        #+#    #+#             */
+/*   Updated: 2020/07/07 22:47:04 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Include/ft_printf.h"
 
-void	flag_x(va_list *args, t_ptrf *struc)
+void	conv_c(va_list *args, t_prtf *struc)
 {
-	unsigned long long n;
+	char c;
 
-	n = va_arg(*args, unsigned long long);
-	ft_puthlow(n, struc);
+	c = (char)va_arg(*args, int);
+	ft_putchar(c, struc);
 }

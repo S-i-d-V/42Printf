@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flag_prc.c                                         :+:      :+:    :+:   */
+/*   conv_i.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/30 12:00:14 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/07/07 16:16:15 by ugtheven         ###   ########.fr       */
+/*   Created: 2020/06/25 01:23:16 by ugotheveny        #+#    #+#             */
+/*   Updated: 2020/07/07 22:47:04 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Include/ft_printf.h"
 
-void	flag_prc(va_list *args, t_ptrf *struc)
+void	conv_i(va_list *args, t_prtf *struc)
 {
-	(void)args;
-	ft_putchar('%', struc);
+	int n;
+
+	n = va_arg(*args, int);
+	ft_putnbr(n, struc);
 }

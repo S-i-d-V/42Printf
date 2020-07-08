@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   utils_libft.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 01:08:18 by ugotheveny        #+#    #+#             */
-/*   Updated: 2020/07/07 16:16:15 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/07/07 22:47:04 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Include/ft_printf.h"
 
-void	ft_putchar(char c, t_ptrf *struc)
+void	ft_putchar(char c, t_prtf *struc)
 {
 	write(1, &c, 1);
 	struc->ret++;
 }
 
-void	ft_putnbr(int nb, t_ptrf *struc)
+void	ft_putnbr(int nb, t_prtf *struc)
 {
 	if (nb == -2147483648)
 		write(1, "-2147483648", 11);
@@ -39,7 +39,7 @@ void	ft_putnbr(int nb, t_ptrf *struc)
 		ft_putchar(nb + 48, struc);
 }
 
-void	ft_putstr(char *str, t_ptrf *struc)
+void	ft_putstr(char *str, t_prtf *struc)
 {
 	int i;
 
