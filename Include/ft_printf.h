@@ -6,7 +6,7 @@
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 12:11:39 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/07/08 12:11:45 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/07/08 13:28:23 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,11 @@ void			ft_puthlow(unsigned long long nb, t_prtf *struc);
 void			ft_puthup(unsigned long long nb, t_prtf *struc);
 void			ft_putui(unsigned int nb, t_prtf *struc);
 int				ft_checktype(char c);
+
+//Prototypes fonctions struct;
 void			innit_struct(t_prtf *struc);
+
+//Prototypes fonctions parsing;
+void			ft_parse(const char *format, va_list *args, t_prtf *struc);
 
 #endif

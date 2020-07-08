@@ -6,7 +6,7 @@
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 01:11:43 by ugotheveny        #+#    #+#             */
-/*   Updated: 2020/07/08 12:10:29 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/07/08 13:31:30 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,20 +43,4 @@ void		ft_putui(unsigned int nb, t_prtf *struc)
 	}
 	else
 		ft_putchar(nb + 48, struc);
-}
-
-int			ft_checktype(char c)
-{
-	int		i;
-	char	*flags;
-
-	i = 0;
-	flags = "cspdiuxX%";
-	while (flags[i])
-	{
-		if (flags[i] == c)
-			return (i);
-		i++;
-	}
-	return (-1);
 }

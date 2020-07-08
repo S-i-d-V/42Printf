@@ -54,7 +54,7 @@ int main()
 
 	ft_printf("Return :\n");
 	ret_moi = ft_printf("MOI : %% | %c | %s | %p | %d | %i | %u | %x | %X\n", alpha[0], alpha, &nb, nb, nb, nb, nb_neg, nb);
-	ret_ptf = printf("MOI : %% | %c | %s | %p | %d | %i | %u | %x | %X\n", alpha[0], alpha, &nb, nb, nb, nb, nb_neg, nb);
+	ret_ptf = printf("PTF : %% | %c | %s | %p | %d | %i | %u | %x | %X\n", alpha[0], alpha, &nb, nb, nb, nb, nb_neg, nb);
 	printf("PTF : %d | MOI : %d\n", ret_ptf, ret_moi);
 	return (0);
 }
