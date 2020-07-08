@@ -34,7 +34,7 @@ int				ft_strlen(char *str);
 void			ft_puthlow(unsigned long long nb, t_prtf *struc);
 void			ft_puthup(unsigned long long nb, t_prtf *struc);
 void			ft_putui(unsigned int nb, t_prtf *struc);
-int				ft_checkflag(char c);
+int				ft_checktype(char c);
 void			innit_struct(t_prtf *struc);
 
 #endif

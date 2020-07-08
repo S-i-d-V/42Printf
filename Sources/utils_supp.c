@@ -6,7 +6,7 @@
 /*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 01:11:43 by ugotheveny        #+#    #+#             */
-/*   Updated: 2020/07/07 22:47:04 by ugotheveny       ###   ########.fr       */
+/*   Updated: 2020/07/08 09:42:41 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ft_putui(unsigned int nb, t_prtf *struc)
 		ft_putchar(nb + 48, struc);
 }
 
-int		ft_checkflag(char c)
+int		ft_checktype(char c)
 {
 	int i;
 	char *flags;

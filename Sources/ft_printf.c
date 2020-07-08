@@ -6,7 +6,7 @@
 /*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 13:53:16 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/07/07 22:47:04 by ugotheveny       ###   ########.fr       */
+/*   Updated: 2020/07/08 09:42:41 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		ft_printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			tmpIndex = ft_checkflag(format[i]);
+			tmpIndex = ft_checktype(format[i]);
 			if (tmpIndex != -1)
 				(*tabFunc[tmpIndex]) (&args, &struc);
 		}
