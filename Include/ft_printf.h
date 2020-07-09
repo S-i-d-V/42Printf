@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 12:11:39 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/07/09 16:51:12 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/07/10 00:04:43 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,12 @@ typedef struct	s_flags
 {
 	int pad;	//1 Oui 0 Non
 	int zero;	//1 Oui 0 Non
+	int dot;	//1 Oui 0 Non
 	int side;	//1 Gauche 0 Droite
 
 	int width;	//Precision de largeur
-	int len;	//Len de la string ou de l'entier
 	char fill;	//' ' ou '0' caractere de remplissage
+	char type;	//cspdiuxX%
 }				t_flags;
 
 //Definition d'une structure pour declarer le tableau de fonction;
@@ -73,11 +74,13 @@ int				ft_checktype(char c);
 //Prototypes fonctions utils struct;
 void			innit_struct(t_prtf *struc);
 void			innit_flags(t_flags *flags);
+void			ft_getfill(t_flags *flags);
 
 //Prototypes fonctions utils parsing;
 void			ft_parse_pad(char c, t_prtf *struc, t_flags *flags);
 void			ft_parse_zero(char c, t_prtf *struc, t_flags *flags);
-void			ft_parse_precision(const char *format, t_prtf *struc, t_flags *flags, va_list *args);
+void			ft_parse_dot(const char *format, t_prtf *struc, t_flags *flags, va_list *args);
+void			ft_parse_width(const char *format, t_prtf *struc, t_flags *flags, va_list *args);
 void			ft_parse(const char *format, t_prtf *struc,t_flags *flags, va_list *args);
 
 #endif
