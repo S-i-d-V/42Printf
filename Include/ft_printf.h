@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 12:11:39 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/07/09 01:16:44 by ugotheveny       ###   ########.fr       */
+/*   Updated: 2020/07/09 15:41:38 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,22 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
-//Definition d'un nouveau types; (Structure);
+//Declaration d'une structure prtf; (Structure);
 typedef struct	s_prtf
 {
-	//Index pour parcour le format + valeur de retour;
 	int i;
 	int ret;
-	//Partie flag (A reset);
-	int pad;	//1 ou 0
-	int zero;	//1 ou 0
-	int wc;		//1 ou 0
+}				t_prtf;
 
+typedef struct	s_flags
+{
+	int pad;	//1 Oui 0 Non
+	int zero;	//1 Oui 0 Non
+	int wc;		//1 Oui 0 Non
+	int side;	//1 Gauche 0 Droite
 	int prec;	//Chiffre
 	char fill;	//' ' ou '0' caractere de remplissage
-}				t_prtf;
+}				t_flags;
 
 //Definition d'une structure pour declarer le tableau de fonction;
 typedef struct	s_tab
@@ -69,12 +71,12 @@ int				ft_checktype(char c);
 
 //Prototypes fonctions utils struct;
 void			innit_struct(t_prtf *struc);
-void			reset_flags(t_prtf *struc);
+void			innit_flags(t_flags *flags);
 
 //Prototypes fonctions utils parsing;
-void			ft_parse_pad(char c, t_prtf *struc);
-void			ft_parse_zero(char c, t_prtf *struc);
-void			ft_parse_precision(const char *format, t_prtf *struc, va_list *args);
+void			ft_parse_pad(char c, t_prtf *struc, t_flags *flags);
+void			ft_parse_zero(char c, t_prtf *struc, t_flags *flags);
+void			ft_parse_precision(const char *format, t_prtf *struc, t_flags *flags, va_list *args);
 void			ft_parse(const char *format, t_prtf *struc, va_list *args);
 
 #endif
