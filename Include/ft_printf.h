@@ -6,7 +6,7 @@
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 12:11:39 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/07/09 16:08:13 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/07/09 16:51:12 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,9 @@ typedef struct	s_flags
 {
 	int pad;	//1 Oui 0 Non
 	int zero;	//1 Oui 0 Non
-	int wc;		//1 Oui 0 Non
 	int side;	//1 Gauche 0 Droite
 
-	int prec;	//Chiffre
+	int width;	//Precision de largeur
 	int len;	//Len de la string ou de l'entier
 	char fill;	//' ' ou '0' caractere de remplissage
 }				t_flags;

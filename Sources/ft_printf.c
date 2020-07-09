@@ -6,7 +6,7 @@
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 13:53:16 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/07/09 16:03:10 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/07/09 16:51:12 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,3 +42,4 @@ int			ft_printf(const char *format, ...)
 	va_end(args);
 	return (struc.ret);
 }
+

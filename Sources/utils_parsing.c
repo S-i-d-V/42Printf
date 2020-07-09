@@ -6,7 +6,7 @@
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 13:30:32 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/07/09 16:00:00 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/07/09 16:51:12 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,12 @@ void		ft_parse_precision(const char *format, t_prtf *struc, t_flags *flags, va_l
 	{
 		struc->i++;
 		if (format[struc->i] == '*')
-			flags->prec = va_arg(*args, int);
+			flags->width = va_arg(*args, int);
 		else
 		{
 			while (ft_isdigit(format[struc->i]))
 			{
-				flags->prec = flags->prec * 10 + format[struc->i];
+				flags->width = flags->width * 10 + format[struc->i];
 				struc->i++;
 			}
 		}
