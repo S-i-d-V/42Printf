@@ -6,7 +6,7 @@
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 13:30:32 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/07/09 15:41:55 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/07/09 16:00:00 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,15 +50,13 @@ void		ft_parse_precision(const char *format, t_prtf *struc, t_flags *flags, va_l
 	}
 }
 
-void		ft_parse(const char *format, t_prtf *struc, va_list *args)
+void		ft_parse(const char *format, t_prtf *struc, t_flags *flags, va_list *args)
 {
-	t_flags flags;
-
-	innit_flags(&flags);
+	innit_flags(flags);
 	while (ft_checktype(format[struc->i]) == -1)
 	{
-		ft_parse_pad(format[struc->i], struc, &flags);
-		ft_parse_zero(format[struc->i], struc, &flags);
-		ft_parse_precision(format, struc, &flags, args);
+		ft_parse_pad(format[struc->i], struc, flags);
+		ft_parse_zero(format[struc->i], struc, flags);
+		ft_parse_precision(format, struc, flags, args);
 	}
 }

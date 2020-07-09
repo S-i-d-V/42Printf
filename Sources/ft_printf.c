@@ -6,7 +6,7 @@
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 13:53:16 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/07/09 12:06:44 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/07/09 16:03:10 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int			ft_printf(const char *format, ...)
 {
 	va_list	args;
 	t_prtf	struc;
+	t_flags flags;
 
 	innit_struct(&struc);
 	va_start(args, format);
@@ -30,8 +31,9 @@ int			ft_printf(const char *format, ...)
 		if (format[struc.i] == '%')
 		{
 			struc.i++;
-			//ft_parse -> Lance mes fonctions de parsing;
-			g_tab[ft_checktype(format[struc.i])].tabFunc(&args, &struc);
+			//ft_parse(format, &struc, &flags, &args);		-> Reset la structure flags puis la remplis;
+			//ft_print_format()								-> Recupere la structure puis print en fonction;
+			g_tab[ft_checktype(format[struc.i])].tabFunc(&args, &struc, &flags);
 		}
 		else
 			ft_putchar(format[struc.i], &struc);

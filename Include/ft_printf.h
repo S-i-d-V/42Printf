@@ -6,7 +6,7 @@
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 12:11:39 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/07/09 15:41:38 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/07/09 16:08:13 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ typedef struct	s_flags
 	int zero;	//1 Oui 0 Non
 	int wc;		//1 Oui 0 Non
 	int side;	//1 Gauche 0 Droite
+
 	int prec;	//Chiffre
+	int len;	//Len de la string ou de l'entier
 	char fill;	//' ' ou '0' caractere de remplissage
 }				t_flags;
 
@@ -38,7 +40,7 @@ typedef struct	s_flags
 typedef struct	s_tab
 {
 	char c;
-	void (*tabFunc)(va_list *, t_prtf *);
+	void (*tabFunc)(va_list *, t_prtf *, t_flags *);
 }				t_tab;
 
 
@@ -46,15 +48,15 @@ typedef struct	s_tab
 int	ft_printf(const char *format, ...);
 
 //Prototypes fonctions conversion;
-void			conv_c(va_list *args, t_prtf *struc);
-void			conv_d(va_list *args, t_prtf *struc);
-void			conv_i(va_list *args, t_prtf *struc);
-void			conv_s(va_list *args, t_prtf *struc);
-void			conv_u(va_list *args, t_prtf *struc);
-void			conv_x(va_list *args, t_prtf *struc);
-void			conv_prc(va_list *args, t_prtf *struc);
-void			conv_p(va_list *args, t_prtf *struc);
-void			conv_xx(va_list *args, t_prtf *struc);
+void			conv_c(va_list *args, t_prtf *struc, t_flags *flags);
+void			conv_d(va_list *args, t_prtf *struc, t_flags *flags);
+void			conv_i(va_list *args, t_prtf *struc, t_flags *flags);
+void			conv_s(va_list *args, t_prtf *struc, t_flags *flags);
+void			conv_u(va_list *args, t_prtf *struc, t_flags *flags);
+void			conv_x(va_list *args, t_prtf *struc, t_flags *flags);
+void			conv_prc(va_list *args, t_prtf *struc, t_flags *flags);
+void			conv_p(va_list *args, t_prtf *struc, t_flags *flags);
+void			conv_xx(va_list *args, t_prtf *struc, t_flags *flags);
 
 //Prototypes fonctions utils libft;
 void			ft_putchar(char c, t_prtf *struc);
@@ -77,6 +79,6 @@ void			innit_flags(t_flags *flags);
 void			ft_parse_pad(char c, t_prtf *struc, t_flags *flags);
 void			ft_parse_zero(char c, t_prtf *struc, t_flags *flags);
 void			ft_parse_precision(const char *format, t_prtf *struc, t_flags *flags, va_list *args);
-void			ft_parse(const char *format, t_prtf *struc, va_list *args);
+void			ft_parse(const char *format, t_prtf *struc,t_flags *flags, va_list *args);
 
 #endif
