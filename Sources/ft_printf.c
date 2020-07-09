@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 13:53:16 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/07/09 01:16:44 by ugotheveny       ###   ########.fr       */
+/*   Updated: 2020/07/09 12:06:44 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int			ft_printf(const char *format, ...)
 		if (format[struc.i] == '%')
 		{
 			struc.i++;
+			//ft_parse -> Lance mes fonctions de parsing;
 			g_tab[ft_checktype(format[struc.i])].tabFunc(&args, &struc);
 		}
 		else
