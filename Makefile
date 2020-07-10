@@ -26,7 +26,7 @@ fclean: clean
 	$(RM) $(NAME)
 
 reset:
-	rm -rf test *.o $(NAME)
+	rm -rf test *.o test.txt $(NAME)
 
 test: all
 	gcc main.c  $(NAME) -o test

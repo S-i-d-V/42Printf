@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 12:11:39 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/07/10 00:04:43 by ugotheveny       ###   ########.fr       */
+/*   Updated: 2020/07/10 14:38:27 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdarg.h>
+
+//A retirer;
+#include <stdio.h>
 
 //Declaration d'une structure prtf; (Structure);
 typedef struct	s_prtf
@@ -82,5 +85,8 @@ void			ft_parse_zero(char c, t_prtf *struc, t_flags *flags);
 void			ft_parse_dot(const char *format, t_prtf *struc, t_flags *flags, va_list *args);
 void			ft_parse_width(const char *format, t_prtf *struc, t_flags *flags, va_list *args);
 void			ft_parse(const char *format, t_prtf *struc,t_flags *flags, va_list *args);
+
+//Temporaire;
+void	ft_print_struc(t_flags flags);
 
 #endif
