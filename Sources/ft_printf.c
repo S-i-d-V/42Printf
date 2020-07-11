@@ -6,7 +6,7 @@
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 13:53:16 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/07/10 15:45:33 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/07/10 16:45:02 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int			ft_printf(const char *format, ...)
 			struc.i++;
 			printf("ft_printf : format[%d] = %c | %s\n", struc.i, format[struc.i], format); //Temporaire
 			ft_parse(format, &struc, &flags, &args);
+			//ft_print_specifier
 			g_tab[ft_checktype(format[struc.i])].tabFunc(&args, &struc, &flags);
 		}
 		else

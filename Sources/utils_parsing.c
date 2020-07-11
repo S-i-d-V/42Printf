@@ -6,7 +6,7 @@
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 13:30:32 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/07/10 15:41:29 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/07/11 13:04:50 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,9 @@ void		ft_parse(const char *format, t_prtf *struc, t_flags *flags, va_list *args)
 
 void		ft_getfill(t_flags *flags)
 {
-	if (flags->type == 'd' && (flags->dot || flags->zero))
+	if ((flags->type == 'd' || flags->type == 'i') && (flags->dot || flags->zero))
+		flags->fill = '0';
+	else if (flags->type == 's' && flags->zero)
 		flags->fill = '0';
 	else
 		flags->fill = ' ';
