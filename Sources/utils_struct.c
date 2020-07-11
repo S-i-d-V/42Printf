@@ -6,7 +6,7 @@
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 11:30:13 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/07/10 14:38:46 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/07/11 13:59:23 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,20 @@ void	innit_flags(t_flags *flags)
 	flags->fill = 0;
 	flags->side = 0;
 	flags->type = 0;
+}
+
+void		ft_getfill(t_flags *flags)
+{
+	if ((flags->type == 'd' || flags->type == 'i') && (flags->dot || flags->zero))
+		flags->fill = '0';
+	else if (flags->type == 's' && flags->zero)
+		flags->fill = '0';
+	else
+		flags->fill = ' ';
+	if (flags->pad)
+		flags->side = 0;
+	else
+		flags->side = 1;
+	if (flags->pad || flags->dot)
+		flags->zero = 0;
 }

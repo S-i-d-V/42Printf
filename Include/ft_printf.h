@@ -6,7 +6,7 @@
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 12:11:39 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/07/11 12:19:49 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/07/11 14:37:23 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,17 @@ void			conv_prc(va_list *args, t_prtf *struc, t_flags *flags);
 void			conv_p(va_list *args, t_prtf *struc, t_flags *flags);
 void			conv_xx(va_list *args, t_prtf *struc, t_flags *flags);
 
+//Prototype fonctions affichage conv+specifier;
+void	spec_c(va_list *args, t_prtf *struc, t_flags *flags);
+void	spec_d(va_list *args, t_prtf *struc, t_flags *flags);
+void	spec_i(va_list *args, t_prtf *struc, t_flags *flags);
+void	spec_u(va_list *args, t_prtf *struc, t_flags *flags);
+void	spec_s(va_list *args, t_prtf *struc, t_flags *flags);
+void	spec_x(va_list *args, t_prtf *struc, t_flags *flags);
+void	spec_prc(va_list *args, t_prtf *struc, t_flags *flags);
+void	spec_p(va_list *args, t_prtf *struc, t_flags *flags);
+void	spec_xx(va_list *args, t_prtf *struc, t_flags *flags);
+
 //Prototypes fonctions utils libft;
 void			ft_putchar(char c, t_prtf *struc);
 void			ft_putnbr(int nb, t_prtf *struc);
@@ -85,6 +96,9 @@ void			ft_parse_zero(char c, t_prtf *struc, t_flags *flags);
 void			ft_parse_dot(const char *format, t_prtf *struc, t_flags *flags, va_list *args);
 void			ft_parse_width(const char *format, t_prtf *struc, t_flags *flags, va_list *args);
 void			ft_parse(const char *format, t_prtf *struc,t_flags *flags, va_list *args);
+
+//Prototypes fonctions utils parsing;
+void			ft_print_specifier(const char *format, va_list *args, t_prtf *struc, t_flags *flags);
 
 //Temporaire;
 void	ft_print_struc(t_flags flags);

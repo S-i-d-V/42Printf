@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conv_prc.c                                         :+:      :+:    :+:   */
+/*   utils_print.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/30 12:00:14 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/07/11 14:35:28 by ugtheven         ###   ########.fr       */
+/*   Created: 2020/07/11 13:58:28 by ugtheven          #+#    #+#             */
+/*   Updated: 2020/07/11 14:36:00 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Include/ft_printf.h"
 
-void	conv_prc(va_list *args, t_prtf *struc, t_flags *flags)
-{
-	(void)args;
-	(void)flags;
+t_tab		g_tab[9] = {
+	{'c', &spec_c}, {'s', &spec_s}, {'p', &spec_p},
+	{'d', &spec_d}, {'i', &spec_i}, {'u', &spec_u},
+	{'x', &spec_x}, {'X', &spec_xx}, {'%', &spec_prc}
+};
 
-	ft_putchar('%', struc);
-}
-
-void	spec_prc(va_list *args, t_prtf *struc, t_flags *flags)
+void	ft_print_specifier(const char *format, va_list *args, t_prtf *struc, t_flags *flags)
 {
-	conv_prc(args, struc, flags);
+	g_tab[ft_checktype(format[struc->i])].tabFunc(args, struc, flags);
 }

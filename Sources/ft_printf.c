@@ -6,18 +6,12 @@
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 13:53:16 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/07/10 16:45:02 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/07/11 14:31:40 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Include/ft_printf.h"
 #include <stdio.h>
-
-t_tab		g_tab[9] = {
-	{'c', &conv_c}, {'s', &conv_s}, {'p', &conv_p},
-	{'d', &conv_d}, {'i', &conv_i}, {'u', &conv_u},
-	{'x', &conv_x}, {'X', &conv_xx}, {'%', &conv_prc}
-};
 
 void	ft_print_struc(t_flags flags)
 {
@@ -48,8 +42,7 @@ int			ft_printf(const char *format, ...)
 			struc.i++;
 			printf("ft_printf : format[%d] = %c | %s\n", struc.i, format[struc.i], format); //Temporaire
 			ft_parse(format, &struc, &flags, &args);
-			//ft_print_specifier
-			g_tab[ft_checktype(format[struc.i])].tabFunc(&args, &struc, &flags);
+			ft_print_specifier(format, &args, &struc, &flags);
 		}
 		else
 			ft_putchar(format[struc.i], &struc);
