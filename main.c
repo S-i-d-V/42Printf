@@ -6,19 +6,25 @@ int		main()
 	char *str;
 	char *str_short;
 
-	len = 10;
-	str = "String moyenne";
-	str_short = "String";
+	len = 5;
+	str = "String test";
+	str_short = "Str";
 
-	printf("============================\nPour len = %d\n", len);
+	printf("===========\nPour * = %d\n===========\n\n", len);
 
-	ft_printf("LONG  : .*s -> %.*s\n\nSHORT : .*s -> %.*s\n", len, str, len, str_short);
-	printf("Comparaison :\nLONG  : .*s -> '%.*s'\nSHORT : .*s -> '%.*s'\n\n", len, str, len, str_short);
+	ft_printf("MOI :\n*s	->	'%*s'\n", len, str);
+	printf("*s	->	'%*s'\n", len, str_short);
+	printf("LUI :\n*s	->	'%*s'\n", len, str);
+	printf("*s	->	'%*s'\n\n", len, str_short);
 
+	ft_printf("MOI :\n.*s	->	'%.*s'\n", len, str);
+	printf(".*s	->	'%.*s'\n", len, str_short);
+	printf("LUI :\n.*s	->	'%.*s'\n", len, str);
+	printf(".*s	->	'%.*s'\n\n", len, str_short);
 
-	ft_printf("LONG  : -*s -> %.*s\n\nSHORT : -*s -> %-*s\n", len, str, len, str_short);
-	printf("Comparaison :\nLONG  : -*s -> '%-*s'\nSHORT : -*s -> '%-*s'\n\n", len, str, len, str_short);
-
-	ft_printf("LONG  : *s -> %.*s\n\nSHORT : *s -> %*s\n", len, str, len, str_short);
-	printf("Comparaison :\nLONG  : *s -> '%*s'\nSHORT : *s -> '%*s'\n\n", len, str, len, str_short);
+	ft_printf("MOI :\n-*s	->	'%-*s'\n", len, str);
+	printf("-*s	->	'%-*s'\n", len, str_short);
+	printf("LUI :\n-*s	->	'%-*s'\n", len, str);
+	printf("-*s	->	'%-*s'\n", len, str_short);
+	return (0);
 }

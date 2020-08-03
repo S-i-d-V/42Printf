@@ -6,7 +6,7 @@
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 11:30:13 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/07/11 13:59:23 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/08/03 15:30:11 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,31 +16,38 @@ void	innit_struct(t_prtf *struc)
 {
 	struc->i = 0;
 	struc->ret = 0;
+	struc->pad = 0;
+	struc->zero = 0;
+	struc->width = 0;
+	struc->dot = 0;
+	struc->fill = 0;
+	struc->side = 0;
+	struc->type = 0;
 }
 
-void	innit_flags(t_flags *flags)
+void	reset_flags(t_prtf *struc)
 {
-	flags->pad = 0;
-	flags->zero = 0;
-	flags->width = 0;
-	flags->dot = 0;
-	flags->fill = 0;
-	flags->side = 0;
-	flags->type = 0;
+	struc->pad = 0;
+	struc->zero = 0;
+	struc->width = 0;
+	struc->dot = 0;
+	struc->fill = 0;
+	struc->side = 0;
+	struc->type = 0;
 }
 
-void		ft_getfill(t_flags *flags)
+void		ft_getfill(t_prtf *struc)
 {
-	if ((flags->type == 'd' || flags->type == 'i') && (flags->dot || flags->zero))
-		flags->fill = '0';
-	else if (flags->type == 's' && flags->zero)
-		flags->fill = '0';
+	if ((struc->type == 'd' || struc->type == 'i') && (struc->dot || struc->zero))
+		struc->fill = '0';
+	else if (struc->type == 's' && struc->zero)
+		struc->fill = '0';
 	else
-		flags->fill = ' ';
-	if (flags->pad)
-		flags->side = 0;
+		struc->fill = ' ';
+	if (struc->pad)
+		struc->side = 0;
 	else
-		flags->side = 1;
-	if (flags->pad || flags->dot)
-		flags->zero = 0;
+		struc->side = 1;
+	if (struc->pad || struc->dot)
+		struc->zero = 0;
 }
