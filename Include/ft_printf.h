@@ -6,7 +6,7 @@
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 12:11:39 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/07/11 14:37:23 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/08/03 15:05:05 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void			ft_parse_dot(const char *format, t_prtf *struc, t_flags *flags, va_list *
 void			ft_parse_width(const char *format, t_prtf *struc, t_flags *flags, va_list *args);
 void			ft_parse(const char *format, t_prtf *struc,t_flags *flags, va_list *args);
 
-//Prototypes fonctions utils parsing;
+//Prototypes fonctions utils print;
 void			ft_print_specifier(const char *format, va_list *args, t_prtf *struc, t_flags *flags);
 
 //Temporaire;

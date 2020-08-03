@@ -6,7 +6,7 @@
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 13:30:32 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/07/11 14:40:58 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/08/03 10:57:04 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 
 void		ft_parse_pad(char c, t_prtf *struc, t_flags *flags)
 {
-	printf("ft_parse_pad : format[%d] = %c\n", struc->i, c); //Temporaire
 	flags->pad = (c == '-' ? 1 : 0);
 	if (flags->pad)
 	{
@@ -27,7 +26,6 @@ void		ft_parse_pad(char c, t_prtf *struc, t_flags *flags)
 
 void		ft_parse_zero(char c, t_prtf *struc, t_flags *flags)
 {
-	printf("ft_parse_zero : format[%d] = %c\n", struc->i, c); //Temporaire
 	flags->zero = (c == '0' ? 1 : 0);
 	if (flags->zero)
 	{
@@ -38,7 +36,6 @@ void		ft_parse_zero(char c, t_prtf *struc, t_flags *flags)
 
 void		ft_parse_dot(const char *format, t_prtf *struc, t_flags *flags, va_list *args)
 {
-	printf("ft_parse_dot : format[%d] = %c | %s\n", struc->i, format[struc->i], format); //Temporaire
 	if (format[struc->i] == '.')
 	{
 		struc->i++;
@@ -49,7 +46,6 @@ void		ft_parse_dot(const char *format, t_prtf *struc, t_flags *flags, va_list *a
 
 void		ft_parse_width(const char *format, t_prtf *struc, t_flags *flags, va_list *args)
 {
-	printf("ft_parse_width : format[%d] = %c | %s\n", struc->i, format[struc->i], format); //Temporaire
 	if (format[struc->i] == '*')
 	{
 		flags->width = va_arg(*args, int);
@@ -61,7 +57,6 @@ void		ft_parse_width(const char *format, t_prtf *struc, t_flags *flags, va_list 
 		{
 			flags->width = flags->width * 10 + format[struc->i] - 48;
 			struc->i++;
-			printf("2: WIDTH = %d | format[%d] = %c\n", flags->width, struc->i, format[struc->i]); //Temporaire
 		}
 	}
 }
