@@ -6,7 +6,7 @@
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 11:30:13 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/03 15:30:11 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/08/07 12:22:02 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	innit_struct(t_prtf *struc)
 {
 	struc->i = 0;
 	struc->ret = 0;
+	struc->len = 0;
 	struc->pad = 0;
 	struc->zero = 0;
 	struc->width = 0;
@@ -27,6 +28,7 @@ void	innit_struct(t_prtf *struc)
 
 void	reset_flags(t_prtf *struc)
 {
+	struc->len = 0;
 	struc->pad = 0;
 	struc->zero = 0;
 	struc->width = 0;
