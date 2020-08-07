@@ -6,7 +6,7 @@
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 01:23:34 by ugotheveny        #+#    #+#             */
-/*   Updated: 2020/08/03 15:25:43 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/08/07 15:35:00 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,4 @@ void	conv_xx(va_list *args, t_prtf *struc)
 
 	n = va_arg(*args, unsigned int);
 	ft_puthup(n, struc);
-}
-
-void	spec_xx(va_list *args, t_prtf *struc)
-{
-	conv_xx(args, struc);
 }

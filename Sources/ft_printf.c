@@ -6,7 +6,7 @@
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 13:53:16 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/03 15:51:36 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/08/07 15:37:01 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int			ft_printf(const char *format, ...)
 
 	innit_struct(&struc);
 	va_start(args, format);
-	//printf("============================\n"); //Temporaire
 	while (format[struc.i])
 	{
 		if (format[struc.i] == '%')
@@ -45,7 +44,6 @@ int			ft_printf(const char *format, ...)
 			ft_putchar(format[struc.i], &struc);
 		struc.i++;
 	}
-	//printf("============================\n"); //Temporaire
 	va_end(args);
 	return (struc.ret);
 }

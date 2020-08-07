@@ -6,7 +6,7 @@
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 01:23:21 by ugotheveny        #+#    #+#             */
-/*   Updated: 2020/08/07 14:12:22 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/08/07 15:35:00 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,6 @@ void	conv_s(va_list *args, t_prtf *struc)
 
 	str = va_arg(*args, char *);
 	struc->len = ft_strlen(str);
-	spec_s(str, struc);
-}
-
-void	spec_s(char *str, t_prtf *struc)
-{
 	if (struc->dot)
 		ft_strto(str, struc->width, struc);
 	else if (struc->pad && struc->side == 0)

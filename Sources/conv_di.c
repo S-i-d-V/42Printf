@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conv_d.c                                           :+:      :+:    :+:   */
+/*   conv_di.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 01:23:11 by ugotheveny        #+#    #+#             */
-/*   Updated: 2020/08/07 14:20:46 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/08/07 15:35:00 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,6 @@ void	conv_d(va_list *args, t_prtf *struc)
 	str = ft_itoa(n);
 	struc->neg = (n < 0) ? 1 : 0;
 	struc->len = ft_strlen(str);
-	spec_d(str, struc);
-	free(str);
-}
-
-void	spec_d(char *str, t_prtf *struc)
-{
 	if (struc->dot && struc->side == 1)
 		dot_d(str, struc);
 	else if (struc->pad && struc->side == 0)
@@ -35,6 +29,7 @@ void	spec_d(char *str, t_prtf *struc)
 		width_d(str, struc);
 	else if (struc->zero)
 		zero_d(str, struc);
+	free(str);
 }
 
 void	dot_d(char *str, t_prtf *struc)

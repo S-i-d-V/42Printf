@@ -6,7 +6,7 @@
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 12:31:31 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/07 13:44:02 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/08/07 15:51:42 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ char	*ft_strdup(char *s)
 
 int	lennb(int n)
 {
-	int	len;
+	unsigned int	len;
 
 	len = 0;
 	if (n <= 0)

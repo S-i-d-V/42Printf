@@ -6,16 +6,16 @@
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 13:58:28 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/07 15:02:31 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/08/07 15:35:00 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Include/ft_printf.h"
 
 t_tab		g_tab[9] = {
-	{'c', &spec_c}, {'s', &conv_s}, {'p', &spec_p},
-	{'d', &conv_d}, {'i', &conv_i}, {'u', &spec_u},
-	{'x', &spec_x}, {'X', &spec_xx}, {'%', &spec_prc}
+	{'c', &conv_c}, {'s', &conv_s}, {'p', &conv_p},
+	{'d', &conv_d}, {'i', &conv_d}, {'u', &conv_u},
+	{'x', &conv_x}, {'X', &conv_xx}, {'%', &conv_prc}
 };
 
 void	ft_print_specifier(const char *format, va_list *args, t_prtf *struc)

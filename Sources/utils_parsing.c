@@ -6,7 +6,7 @@
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 13:30:32 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/03 15:39:52 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/08/07 15:37:01 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,4 @@ void		ft_parse(const char *format, t_prtf *struc, va_list *args)
 	}
 	struc->type = format[struc->i];
 	ft_getfill(struc);
-	//ft_print_struc(*struc); //Temporaire
 }
