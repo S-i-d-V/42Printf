@@ -6,7 +6,7 @@
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 13:58:28 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/07 13:41:57 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/08/07 15:02:31 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_tab		g_tab[9] = {
 	{'c', &spec_c}, {'s', &conv_s}, {'p', &spec_p},
-	{'d', &conv_d}, {'i', &spec_i}, {'u', &spec_u},
+	{'d', &conv_d}, {'i', &conv_i}, {'u', &spec_u},
 	{'x', &spec_x}, {'X', &spec_xx}, {'%', &spec_prc}
 };
 

@@ -6,7 +6,7 @@
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 12:11:39 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/07 13:44:02 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/08/07 15:02:31 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ typedef struct	s_prtf
 {
 	int i;
 	int ret;
-	int len;
 
 	int pad;	//1 Oui 0 Non
 	int zero;	//1 Oui 0 Non
@@ -37,6 +36,9 @@ typedef struct	s_prtf
 	int width;	//Precision de largeur
 	char fill;	//' ' ou '0' caractere de remplissage
 	char type;	//cspdiuxX%
+
+	int len;
+	int neg;
 }				t_prtf;
 
 //Definition d'une structure pour declarer le tableau de fonction;
@@ -63,7 +65,7 @@ void			conv_xx(va_list *args, t_prtf *struc);
 //Prototype fonctions affichage conv+specifier;
 void			spec_c(va_list *args, t_prtf *struc);
 void			spec_d(char *str, t_prtf *struc);
-void			spec_i(va_list *args, t_prtf *struc);
+void			spec_i(char *str, t_prtf *struc);
 void			spec_u(va_list *args, t_prtf *struc);
 void			spec_s(char *str, t_prtf *struc);
 void			spec_x(va_list *args, t_prtf *struc);
@@ -75,6 +77,11 @@ void			spec_xx(va_list *args, t_prtf *struc);
 void			pad_s(char *str, t_prtf *struc);
 void			width_s(char *str, t_prtf *struc);
 void			zero_s(char *str, t_prtf *struc);
+
+void			pad_d(char *str, t_prtf *struc);
+void			width_d(char *str, t_prtf *struc);
+void			zero_d(char *str, t_prtf *struc);
+void			dot_d(char *str, t_prtf *struc);
 
 //Prototypes fonctions utils libft;
 void			ft_putchar(char c, t_prtf *struc);

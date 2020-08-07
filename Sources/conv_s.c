@@ -6,7 +6,7 @@
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 01:23:21 by ugotheveny        #+#    #+#             */
-/*   Updated: 2020/08/07 13:17:50 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/08/07 14:12:22 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,6 @@ void	conv_s(va_list *args, t_prtf *struc)
 
 void	spec_s(char *str, t_prtf *struc)
 {
-	int i;
-
-	i = 0;
-	struc->len = ft_strlen(str);
 	if (struc->dot)
 		ft_strto(str, struc->width, struc);
 	else if (struc->pad && struc->side == 0)
@@ -39,9 +35,6 @@ void	spec_s(char *str, t_prtf *struc)
 
 void	pad_s(char *str, t_prtf *struc)
 {
-	int i;
-	
-	i = 0;
 	if (struc->len < struc->width)
 	{
 		ft_strto(str, struc->len, struc);
@@ -53,9 +46,6 @@ void	pad_s(char *str, t_prtf *struc)
 
 void	width_s(char *str, t_prtf *struc)
 {
-	int i;
-	
-	i = 0;
 	if (struc->len < struc->width)
 	{
 		ft_fill(' ', (struc->width - struc->len), struc);
@@ -67,9 +57,6 @@ void	width_s(char *str, t_prtf *struc)
 
 void	zero_s(char *str, t_prtf *struc)
 {
-	int i;
-	
-	i = 0;
 	if (struc->len < struc->width)
 	{
 		ft_fill('0', (struc->width - struc->len), struc);

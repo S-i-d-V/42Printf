@@ -3,32 +3,33 @@
 int		main()
 {
 	int len;
-	char *str;
-	char *str_short;
+	int pos;
+	int neg;
 
-	len = 5;
-	str = "String test";
-	str_short = "Str";
+	len = 4;
+	pos = -965723;
+	neg = 93;
 
 	printf("===========\nPour * = %d\n===========\n\n", len);
 
-	ft_printf("MOI :\n*s	->	'%*s'\n", len, str);
-	ft_printf("*s	->	'%*s'\n", len, str_short);
-	printf("LUI :\n*s	->	'%*s'\n", len, str);
-	printf("*s	->	'%*s'\n\n", len, str_short);
+	ft_printf("MOI :\n*d	->	'%*d'\n", len, pos);
+	ft_printf("*d	->	'%*d'\n", len, neg);
+	printf("LUI :\n*d	->	'%*d'\n", len, pos);
+	printf("*d	->	'%*d'\n\n", len, neg);
 
-	ft_printf("MOI :\n.*s	->	'%.*s'\n", len, str);
-	ft_printf(".*s	->	'%.*s'\n", len, str_short);
-	printf("LUI :\n.*s	->	'%.*s'\n", len, str);
-	printf(".*s	->	'%.*s'\n\n", len, str_short);
+	ft_printf("MOI :\n.*d	->	'%.*d'\n", len, pos);
+	ft_printf(".*d	->	'%.*d'\n", len, neg);
+	printf("LUI :\n.*d	->	'%.*d'\n", len, pos);
+	printf(".*d	->	'%.*d'\n\n", len, neg);
 
-	ft_printf("MOI :\n-*s	->	'%-*s'\n", len, str);
-	ft_printf("-*s	->	'%-*s'\n", len, str_short);
-	printf("LUI :\n-*s	->	'%-*s'\n", len, str);
-	printf("-*s	->	'%-*s'\n\n", len, str_short);
+	ft_printf("MOI :\n-*d	->	'%-*d'\n", len, pos);
+	ft_printf("-*d	->	'%-*d'\n", len, neg);
+	printf("LUI :\n-*d	->	'%-*d'\n", len, pos);
+	printf("-*d	->	'%-*d'\n\n", len, neg);
 
-	ft_printf("MOI :\n0*s	->	'%0*s'\n", len, str);
-	ft_printf("0*s	->	'%0*s'\n", len, str_short);
-	printf("LUI :\nUNDEFINED\n");
+	ft_printf("MOI :\n0*d	->	'%0*d'\n", len, pos);
+	ft_printf("0*d	->	'%0*d'\n", len, neg);
+	printf("LUI :\n0*d	->	'%0*d'\n", len, pos);
+	printf("0*d	->	'%0*d'\n", len, neg);
 	return (0);
 }
