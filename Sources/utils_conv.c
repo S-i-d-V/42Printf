@@ -3,60 +3,96 @@
 /*                                                        :::      ::::::::   */
 /*   utils_conv.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 01:11:43 by ugotheveny        #+#    #+#             */
-/*   Updated: 2020/07/09 01:16:44 by ugotheveny       ###   ########.fr       */
+/*   Updated: 2020/08/10 14:21:51 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Include/ft_printf.h"
 
-int			ft_checktype(char c)
+int		ft_lenhexa(unsigned int n)
 {
-	int		i;
-	char	*flags;
+	int i;
 
 	i = 0;
-	flags = "cspdiuxX%";
-	while (flags[i])
+	while (n > 0)
 	{
-		if (flags[i] == c)
-			return (i);
+		n = n / 16;
 		i++;
 	}
-	return (-1);
+	return (i);
 }
 
-void		ft_puthlow(unsigned long long nb, t_prtf *struc)
+char	*ft_revstr(char *str)
 {
-	char	*base;
+	int i;
+	int len;
+	char tmp;
 
-	base = "0123456789abcdef";
-	if (nb >= 16)
-		ft_puthlow(nb / 16, struc);
-	ft_putchar(base[(nb % 16)], struc);
-}
-
-void		ft_puthup(unsigned long long nb, t_prtf *struc)
-{
-	char	*base;
-
-	base = "0123456789ABCDEF";
-	if (nb >= 16)
-		ft_puthup(nb / 16, struc);
-	ft_putchar(base[(nb % 16)], struc);
-}
-
-void		ft_putui(unsigned int nb, t_prtf *struc)
-{
-	if (nb == 0)
-		ft_putchar('0', struc);
-	else if (nb >= 10)
+	i = 0;
+	len = ft_strlen(str);
+	while (i < len)
 	{
-		ft_putui(nb / 10, struc);
-		ft_putchar(nb % 10 + 48, struc);
+		len--;
+		tmp = str[i];
+		str[i] = str[len];
+		str[len] = tmp;
+		i++;
 	}
-	else
-		ft_putchar(nb + 48, struc);
+	return(str);
+}
+
+char	*ft_itoa_hexa(unsigned int n, char *base)
+{
+	int len;
+	int i;
+	char *str;
+
+	len = ft_lenhexa(n);
+	i = 0;
+	if ((str = malloc(sizeof(char) * (len + 1))) == NULL)
+		return (NULL);
+	while (n > 0)
+	{
+		str[i] = base[n % 16];
+		n = n / 16;
+		i++;
+	}
+	str[i++] = '\0';
+	return (ft_revstr(str));
+}
+
+int		ft_llenhexa(unsigned int n)
+{
+	int i;
+
+	i = 0;
+	while (n > 0)
+	{
+		n = n / 16;
+		i++;
+	}
+	return (i);
+}
+
+char	*ft_ltoa_hexa(unsigned long long n, char *base)
+{
+	int len;
+	int i;
+	char *str;
+
+	len = ft_llenhexa(n);
+	i = 0;
+	if ((str = malloc(sizeof(char) * (len + 1))) == NULL)
+		return (NULL);
+	while (n > 0)
+	{
+		str[i] = base[n % 16];
+		n = n / 16;
+		i++;
+	}
+	str[i++] = '\0';
+	return (ft_revstr(str));
 }

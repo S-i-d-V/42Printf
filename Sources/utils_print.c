@@ -6,7 +6,7 @@
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 13:58:28 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/07 15:35:00 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/08/10 14:21:51 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,20 @@ t_tab		g_tab[9] = {
 void	ft_print_specifier(const char *format, va_list *args, t_prtf *struc)
 {
 	g_tab[ft_checktype(format[struc->i])].tabFunc(args, struc);
+}
+
+int			ft_checktype(char c)
+{
+	int		i;
+	char	*flags;
+
+	i = 0;
+	flags = "cspdiuxX%";
+	while (flags[i])
+	{
+		if (flags[i] == c)
+			return (i);
+		i++;
+	}
+	return (-1);
 }

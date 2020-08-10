@@ -6,7 +6,7 @@
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 12:11:39 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/07 16:04:12 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/08/10 14:19:53 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,21 @@ void			width_u(char *str, t_prtf *struc);
 void			zero_u(char *str, t_prtf *struc);
 void			dot_u(char *str, t_prtf *struc);
 
+void			pad_x(char *str, t_prtf *struc);
+void			width_x(char *str, t_prtf *struc);
+void			zero_x(char *str, t_prtf *struc);
+void			dot_x(char *str, t_prtf *struc);
+
+void			pad_xx(char *str, t_prtf *struc);
+void			width_xx(char *str, t_prtf *struc);
+void			zero_xx(char *str, t_prtf *struc);
+void			dot_xx(char *str, t_prtf *struc);
+
+void			pad_p(char *str, t_prtf *struc);
+void			width_p(char *str, t_prtf *struc);
+void			zero_p(char *str, t_prtf *struc);
+void			dot_p(char *str, t_prtf *struc);
+
 //Prototypes fonctions utils libft;
 void			ft_putchar(char c, t_prtf *struc);
 void			ft_putnbr(int nb, t_prtf *struc);
@@ -88,14 +103,17 @@ void			ft_fill(char c, int n, t_prtf *struc);
 char			*ft_itoa(int n);
 char			*ft_strdup(char *s);
 char			*ft_uitoa(unsigned int n);
+char			*ft_itoa_hexa(unsigned int n, char *base);
+char			*ft_ltoa_hexa(unsigned long long n, char *base);
 
 //Prototypes dependances libft;
 int				lennb(int n);
 void			itoasign(int *n, unsigned int *sign);
+char			*ft_revstr(char *str);
+int				ft_lenhexa(unsigned int n);
+int				ft_llenhexa(unsigned int n);
 
 //Prototypes fonctions utils conv;
-void			ft_puthlow(unsigned long long nb, t_prtf *struc);
-void			ft_puthup(unsigned long long nb, t_prtf *struc);
 int				ft_checktype(char c);
 
 //Prototypes fonctions utils struct;
