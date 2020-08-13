@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_struct.c                                     :+:      :+:    :+:   */
+/*   struct_functions.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/08 11:30:13 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/07 14:07:30 by ugtheven         ###   ########.fr       */
+/*   Created: 2020/08/13 12:46:15 by ugtheven          #+#    #+#             */
+/*   Updated: 2020/08/13 14:21:43 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void		ft_getfill(t_prtf *struc)
 {
 	if ((struc->type == 'd' || struc->type == 'i') && (struc->dot || struc->zero))
 		struc->fill = '0';
-	else if (struc->type == 's' && struc->zero)
+	else if ((struc->type == 's' || struc->type == 'c') && struc->zero)
 		struc->fill = '0';
 	else
 		struc->fill = ' ';
@@ -55,3 +55,43 @@ void		ft_getfill(t_prtf *struc)
 	if (struc->pad || struc->dot)
 		struc->zero = 0;
 }
+
+/*void		ft_getfill(t_prtf *struc)
+{
+	if ((struc->type == 'd' || struc->type == 'i') && (struc->dot || struc->zero))
+	{
+		struc->fill = '0';
+		printf("DEBUG 1\n");
+	}
+	else if ((struc->type == 's' || struc->type == 'c') && struc->zero)
+	{
+		struc->fill = '0';
+		printf("DEBUG 2\n");
+	}
+	else
+	{
+		struc->fill = ' ';
+		printf("DEBUG 3\n");
+	}
+	if (struc->pad)
+	{
+		struc->side = 0;
+		printf("DEBUG 4\n");
+	}
+	else
+	{
+		struc->side = 1;
+		printf("DEBUG 5\n");
+	}
+	if (struc->pad || struc->dot)
+	{
+		struc->zero = 0;
+		printf("DEBUG 6\n");
+	}
+	printf("SIDE = %d\n", struc->side);
+	printf("DOT = %d\n", struc->dot);
+	printf("PAD = %d\n", struc->pad);
+	printf("ZERO = %d\n", struc->zero);
+	printf("TYPE = %c\n", struc->type);
+	printf("WIDTH = %d\n", struc->width);
+}*/

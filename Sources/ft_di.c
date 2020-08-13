@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conv_di.c                                          :+:      :+:    :+:   */
+/*   ft_di.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/25 01:23:11 by ugotheveny        #+#    #+#             */
-/*   Updated: 2020/08/07 15:35:00 by ugtheven         ###   ########.fr       */
+/*   Created: 2020/08/13 12:28:16 by ugtheven          #+#    #+#             */
+/*   Updated: 2020/08/13 12:30:00 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Include/ft_printf.h"
 
-void	conv_d(va_list *args, t_prtf *struc)
+void	ft_d(va_list *args, t_prtf *struc)
 {
-	int n;
-	char *str;
-	
+	int		n;
+	char	*str;
+
 	n = va_arg(*args, int);
 	str = ft_itoa(n);
 	struc->neg = (n < 0) ? 1 : 0;
@@ -25,7 +25,7 @@ void	conv_d(va_list *args, t_prtf *struc)
 		dot_d(str, struc);
 	else if (struc->pad && struc->side == 0)
 		pad_d(str, struc);
-	else if (!struc->pad && !struc-> dot && !struc->zero)
+	else if (!struc->pad && !struc->dot && !struc->zero)
 		width_d(str, struc);
 	else if (struc->zero)
 		zero_d(str, struc);

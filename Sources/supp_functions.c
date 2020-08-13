@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_libft2.c                                     :+:      :+:    :+:   */
+/*   supp_functions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/07 12:31:31 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/07 15:51:42 by ugtheven         ###   ########.fr       */
+/*   Created: 2020/08/13 12:44:54 by ugtheven          #+#    #+#             */
+/*   Updated: 2020/08/13 15:46:38 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,67 +41,37 @@ void	ft_fill(char c, int n, t_prtf *struc)
 	}
 }
 
-char		*ft_itoa(int n)
+char	*ft_revstr(char *str)
 {
-	unsigned int	len;
-	unsigned int	sign;
-	char			*str;
+	int i;
+	int len;
+	char tmp;
 
-	len = lennb(n);
-	sign = 0;
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
-	itoasign(&n, &sign);
-	str = malloc(sizeof(char) * len + 1);
-	if (str == NULL)
-		return (NULL);
-	str[len--] = '\0';
-	if (n == 0)
-		str[0] = '0';
-	if (sign == 1)
-		str[0] = '-';
-	while (n != 0)
-	{
-		str[len] = (n % 10) + '0';
-		n = n / 10;
-		len--;
-	}
-	return (str);
-}
-
-char	*ft_strdup(char *s)
-{
-	int		i;
-	char	*dup;
-
-	dup = malloc(sizeof(char) * (ft_strlen(s) + 1));
-	if (dup == NULL)
-		return (NULL);
 	i = 0;
-	while (s[i])
+	len = ft_strlen(str);
+	while (i < len)
 	{
-		dup[i] = s[i];
+		len--;
+		tmp = str[i];
+		str[i] = str[len];
+		str[len] = tmp;
 		i++;
 	}
-	dup[i] = '\0';
-	return (dup);
+	return(str);
 }
 
-int	lennb(int n)
+int			ft_checkflags(char c)
 {
-	unsigned int	len;
+	int		i;
+	char	*flags;
 
-	len = 0;
-	if (n <= 0)
+	i = 0;
+	flags = ".-0";
+	while (flags[i])
 	{
-		len++;
-		if (len < 0)
-			n = n * -1;
+		if (flags[i] == c)
+			return (i);
+		i++;
 	}
-	while (n != 0)
-	{
-		n = n / 10;
-		len++;
-	}
-	return (len);
+	return (-1);
 }

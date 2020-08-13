@@ -6,7 +6,7 @@
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 12:11:39 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/10 14:19:53 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/08/13 15:49:02 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,84 +51,84 @@ typedef struct	s_tab
 //Prototype fonction ft_printf;
 int	ft_printf(const char *format, ...);
 
-//Prototypes fonctions conversion;
-void			conv_c(va_list *args, t_prtf *struc);
-void			conv_d(va_list *args, t_prtf *struc);
-void			conv_i(va_list *args, t_prtf *struc);
-void			conv_s(va_list *args, t_prtf *struc);
-void			conv_u(va_list *args, t_prtf *struc);
-void			conv_x(va_list *args, t_prtf *struc);
-void			conv_prc(va_list *args, t_prtf *struc);
-void			conv_p(va_list *args, t_prtf *struc);
-void			conv_xx(va_list *args, t_prtf *struc);
+//Prototypes fonction pourcent;
+void			ft_prc(va_list *args, t_prtf *struc);
 
-//Fonctions modulaire;
+//Prototypes fonctions conversions + width/dot/...;
+//	C;
+void			ft_c(va_list *args, t_prtf *struc);
+void			width_c(char c, t_prtf *struc);
+void			pad_c(char c, t_prtf *struc);
+void			zero_c(char c, t_prtf *struc);
+//	S;
+void			ft_s(va_list *args, t_prtf *struc);
 void			pad_s(char *str, t_prtf *struc);
 void			width_s(char *str, t_prtf *struc);
 void			zero_s(char *str, t_prtf *struc);
-
+//	D|I;
+void			ft_d(va_list *args, t_prtf *struc);
 void			pad_d(char *str, t_prtf *struc);
 void			width_d(char *str, t_prtf *struc);
 void			zero_d(char *str, t_prtf *struc);
 void			dot_d(char *str, t_prtf *struc);
-
+//	U;
+void			ft_u(va_list *args, t_prtf *struc);
 void			pad_u(char *str, t_prtf *struc);
 void			width_u(char *str, t_prtf *struc);
 void			zero_u(char *str, t_prtf *struc);
 void			dot_u(char *str, t_prtf *struc);
-
+//	X;
+void			ft_x(va_list *args, t_prtf *struc);
 void			pad_x(char *str, t_prtf *struc);
 void			width_x(char *str, t_prtf *struc);
 void			zero_x(char *str, t_prtf *struc);
 void			dot_x(char *str, t_prtf *struc);
-
+//	XX;
+void			ft_xx(va_list *args, t_prtf *struc);
 void			pad_xx(char *str, t_prtf *struc);
 void			width_xx(char *str, t_prtf *struc);
 void			zero_xx(char *str, t_prtf *struc);
 void			dot_xx(char *str, t_prtf *struc);
-
+//	P;
+void			ft_p(va_list *args, t_prtf *struc);
 void			pad_p(char *str, t_prtf *struc);
 void			width_p(char *str, t_prtf *struc);
 void			zero_p(char *str, t_prtf *struc);
 void			dot_p(char *str, t_prtf *struc);
 
-//Prototypes fonctions utils libft;
+//Prototypes fonctions libc/modif;
+//	libft_mod;
 void			ft_putchar(char c, t_prtf *struc);
-void			ft_putnbr(int nb, t_prtf *struc);
 void			ft_putstr(char *str, t_prtf *struc);
 int				ft_strlen(char *str);
 int				ft_isdigit(int c);
-int				ft_strto(char *str, int n, t_prtf *struc);
-void			ft_fill(char c, int n, t_prtf *struc);
-char			*ft_itoa(int n);
 char			*ft_strdup(char *s);
+//	xtoa_functions;
+char			*ft_itoa(int n);
 char			*ft_uitoa(unsigned int n);
 char			*ft_itoa_hexa(unsigned int n, char *base);
 char			*ft_ltoa_hexa(unsigned long long n, char *base);
-
-//Prototypes dependances libft;
+//	xtoa_necessaries;
 int				lennb(int n);
 void			itoasign(int *n, unsigned int *sign);
-char			*ft_revstr(char *str);
 int				ft_lenhexa(unsigned int n);
-int				ft_llenhexa(unsigned int n);
-
-//Prototypes fonctions utils conv;
-int				ft_checktype(char c);
-
-//Prototypes fonctions utils struct;
+//	supp_functions;
+int				ft_strto(char *str, int n, t_prtf *struc);
+void			ft_fill(char c, int n, t_prtf *struc);
+char			*ft_revstr(char *str);
+int				ft_checkflags(char c);
+//	tab_functions;
+void			ft_print_specifier(const char *format, va_list *args, t_prtf *struc);
+int				ft_checktypes(char c);
+//	struct_functions;
 void			innit_struct(t_prtf *struc);
 void			reset_flags(t_prtf *struc);
 void			ft_getfill(t_prtf *struc);
-
-//Prototypes fonctions utils parsing;
+//	parse_functions;
 void			ft_parse_pad(char c, t_prtf *struc);
 void			ft_parse_zero(char c, t_prtf *struc);
 void			ft_parse_dot(const char *format, t_prtf *struc, va_list *args);
 void			ft_parse_width(const char *format, t_prtf *struc, va_list *args);
 void			ft_parse(const char *format, t_prtf *struc, va_list *args);
-
-//Prototypes fonctions utils print;
-void			ft_print_specifier(const char *format, va_list *args, t_prtf *struc);
 
 #endif

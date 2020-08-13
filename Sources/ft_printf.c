@@ -5,15 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/30 13:53:16 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/07 15:37:01 by ugtheven         ###   ########.fr       */
+/*   Created: 2020/08/13 12:28:48 by ugtheven          #+#    #+#             */
+/*   Updated: 2020/08/13 12:31:58 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Include/ft_printf.h"
 #include <stdio.h>
 
-void	ft_print_struc(t_prtf struc)
+void		ft_print_struc(t_prtf struc)
 {
 	printf("PRINT STRUC :\n");
 	printf("DOT	= '%d'\n", struc.dot);

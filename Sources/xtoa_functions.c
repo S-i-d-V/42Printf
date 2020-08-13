@@ -1,47 +1,71 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_conv.c                                       :+:      :+:    :+:   */
+/*   xtoa_functions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/25 01:11:43 by ugotheveny        #+#    #+#             */
-/*   Updated: 2020/08/10 14:21:51 by ugtheven         ###   ########.fr       */
+/*   Created: 2020/08/13 12:37:45 by ugtheven          #+#    #+#             */
+/*   Updated: 2020/08/13 12:42:42 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Include/ft_printf.h"
 
-int		ft_lenhexa(unsigned int n)
+char		*ft_itoa(int n)
 {
-	int i;
+	unsigned int	len;
+	unsigned int	sign;
+	char			*str;
 
-	i = 0;
-	while (n > 0)
+	len = lennb(n);
+	sign = 0;
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	itoasign(&n, &sign);
+	str = malloc(sizeof(char) * len + 1);
+	if (str == NULL)
+		return (NULL);
+	str[len--] = '\0';
+	if (n == 0)
+		str[0] = '0';
+	if (sign == 1)
+		str[0] = '-';
+	while (n != 0)
 	{
-		n = n / 16;
-		i++;
+		str[len] = (n % 10) + '0';
+		n = n / 10;
+		len--;
 	}
-	return (i);
+	return (str);
 }
 
-char	*ft_revstr(char *str)
+char		*ft_uitoa(unsigned int n)
 {
-	int i;
-	int len;
-	char tmp;
+	unsigned int	len;
+	unsigned int 	tmp;
+	char			*str;
 
-	i = 0;
-	len = ft_strlen(str);
-	while (i < len)
+	len = 0;
+	tmp = n;
+	while (tmp != 0)
 	{
-		len--;
-		tmp = str[i];
-		str[i] = str[len];
-		str[len] = tmp;
-		i++;
+		tmp = tmp / 10;
+		len++;
 	}
-	return(str);
+	str = malloc(sizeof(char) * len + 1);
+	if (str == NULL)
+		return (NULL);
+	str[len--] = '\0';
+	if (n == 0)
+		str[0] = '0';
+	while (n != 0)
+	{
+		str[len] = (n % 10) + '0';
+		n = n / 10;
+		len--;
+	}
+	return (str);
 }
 
 char	*ft_itoa_hexa(unsigned int n, char *base)
@@ -64,26 +88,13 @@ char	*ft_itoa_hexa(unsigned int n, char *base)
 	return (ft_revstr(str));
 }
 
-int		ft_llenhexa(unsigned int n)
-{
-	int i;
-
-	i = 0;
-	while (n > 0)
-	{
-		n = n / 16;
-		i++;
-	}
-	return (i);
-}
-
 char	*ft_ltoa_hexa(unsigned long long n, char *base)
 {
 	int len;
 	int i;
 	char *str;
 
-	len = ft_llenhexa(n);
+	len = ft_lenhexa(n);
 	i = 0;
 	if ((str = malloc(sizeof(char) * (len + 1))) == NULL)
 		return (NULL);

@@ -1,76 +1,92 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conv_xx.c                                          :+:      :+:    :+:   */
+/*   ft_p.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/25 01:23:34 by ugotheveny        #+#    #+#             */
-/*   Updated: 2020/08/10 13:08:27 by ugtheven         ###   ########.fr       */
+/*   Created: 2020/08/13 12:31:25 by ugtheven          #+#    #+#             */
+/*   Updated: 2020/08/13 12:33:25 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Include/ft_printf.h"
 
-void	conv_xx(va_list *args, t_prtf *struc)
+void					ft_p(va_list *args, t_prtf *struc)
 {
-	unsigned int n;
-	char *str;
-	
-	n = va_arg(*args, unsigned int);
-	str = ft_itoa_hexa(n, "0123456789ABCDEF");
+	unsigned long long	n;
+	char				*str;
+
+	n = va_arg(*args, unsigned long long);
+	str = ft_ltoa_hexa(n, "0123456789abcdef");
 	struc->len = ft_strlen(str);
 	if (struc->dot && struc->side == 1)
-		dot_xx(str, struc);
+		dot_p(str, struc);
 	else if (struc->pad && struc->side == 0)
-		pad_xx(str, struc);
-	else if (!struc->pad && !struc-> dot && !struc->zero)
-		width_xx(str, struc);
+		pad_p(str, struc);
+	else if (!struc->pad && !struc->dot && !struc->zero)
+		width_p(str, struc);
 	else if (struc->zero)
-		zero_xx(str, struc);
+		zero_p(str, struc);
 	free(str);
 }
 
-void	dot_xx(char *str, t_prtf *struc)
+void					dot_p(char *str, t_prtf *struc)
 {
 	if (struc->len < struc->width)
 	{
-		ft_fill('0', (struc->width - struc->len), struc);
+		ft_fill('0', (struc->width - struc->len + 2), struc);
+		ft_putstr("0x", struc);
 		ft_putstr(str, struc);
 	}
 	else
+	{
+		ft_putstr("0x", struc);
 		ft_putstr(str, struc);
+	}
 }
 
-void	pad_xx(char *str, t_prtf *struc)
+void					pad_p(char *str, t_prtf *struc)
 {
 	if (struc->len < struc->width)
 	{
+		ft_putstr("0x", struc);
 		ft_putstr(str, struc);
-		ft_fill(' ', (struc->width - struc->len), struc);
+		ft_fill(' ', (struc->width - struc->len + 2), struc);
 	}
 	else
+	{
+		ft_putstr("0x", struc);
 		ft_putstr(str, struc);
+	}
 }
 
-void	width_xx(char *str, t_prtf *struc)
+void					width_p(char *str, t_prtf *struc)
 {
 	if (struc->len < struc->width)
 	{
-		ft_fill(' ', (struc->width - struc->len), struc);
+		ft_fill(' ', (struc->width - struc->len + 2), struc);
+		ft_putstr("0x", struc);
 		ft_putstr(str, struc);
 	}
 	else
+	{
+		ft_putstr("0x", struc);
 		ft_putstr(str, struc);
+	}
 }
 
-void	zero_xx(char *str, t_prtf *struc)
+void					zero_p(char *str, t_prtf *struc)
 {
 	if (struc->len < struc->width)
 	{
-		ft_fill('0', (struc->width - struc->len), struc);
+		ft_fill('0', (struc->width - struc->len + 2), struc);
+		ft_putstr("0x", struc);
 		ft_putstr(str, struc);
 	}
 	else
+	{
+		ft_putstr("0x", struc);
 		ft_putstr(str, struc);
+	}
 }
