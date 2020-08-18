@@ -6,7 +6,7 @@
 /*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 12:28:16 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/19 00:06:13 by ugotheveny       ###   ########.fr       */
+/*   Updated: 2020/08/19 00:55:29 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,20 @@ void		ft_display_int(char *str, t_prtf *struc)
 	{
 		if (struc->dot)
 		{
-			ft_strto(str, struc->len, struc);
-			ft_fill(' ', struc->width - struc->len, struc);
+			if (struc->neg)
+			{
+				ft_putchar('-', struc);
+				ft_fill('0', struc->prec - struc->len + 1, struc);
+				str++;
+				ft_strto(str, struc->len, struc);
+				ft_fill(' ', struc->width - struc->prec - 2, struc);
+			}
+			else
+			{
+				ft_fill('0', struc->prec - struc->len, struc);
+				ft_strto(str, struc->len, struc);
+				ft_fill(' ', struc->width - struc->prec - 1, struc);
+			}
 		}
 		else
 		{
@@ -45,8 +57,20 @@ void		ft_display_int(char *str, t_prtf *struc)
 	{
 		if (struc->dot)
 		{
-			ft_fill('0', struc->width - struc->len, struc);
-			ft_strto(str, struc->len, struc);
+			if (struc->neg)
+			{
+				ft_fill(' ', struc->width - struc->prec - 2, struc);
+				ft_putchar('-', struc);
+				ft_fill('0', struc->prec - struc->len + 1, struc);
+				str++;
+				ft_strto(str, struc->len, struc);
+			}
+			else
+			{
+				ft_fill(' ', struc->width - struc->prec - 1, struc);
+				ft_fill('0', struc->prec - struc->len, struc);
+				ft_strto(str, struc->len, struc);
+			}
 		}
 		else
 		{
@@ -69,8 +93,20 @@ void		ft_display_int(char *str, t_prtf *struc)
 	{
 		if (struc->dot)
 		{
-			ft_fill('0', struc->width - struc->len, struc);
-			ft_strto(str, struc->len, struc);
+			if (struc->neg)
+			{
+				ft_fill('0', struc->width - struc->prec - 1, struc);
+				ft_putchar('-', struc);
+				ft_fill('0', struc->prec - struc->len + 1, struc);
+				str++;
+				ft_strto(str, struc->len, struc);
+			}
+			else
+			{
+				ft_fill('0', struc->width - struc->prec, struc);
+				ft_fill('0', struc->prec - struc->len, struc);
+				ft_strto(str, struc->len, struc);
+			}
 		}
 		else
 		{
@@ -88,7 +124,20 @@ void		ft_display_int(char *str, t_prtf *struc)
 		}
 	}
 	else if (struc->dot)
-		ft_strto(str, struc->prec, struc);
+	{
+		if (struc->neg)
+		{
+			ft_putchar('-', struc);
+			ft_fill('0', struc->prec - struc->len + 1, struc);
+			str++;
+			ft_strto(str, struc->len, struc);
+		}
+		else
+		{
+			ft_fill('0', struc->prec - struc->len, struc);
+			ft_strto(str, struc->len, struc);
+		}
+	}
 	else
 		ft_strto(str, struc->len, struc);
 }
