@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   supp_functions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 12:44:54 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/13 15:46:38 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/08/18 22:49:38 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,11 @@ int			ft_checkflags(char c)
 	char	*flags;
 
 	i = 0;
-	flags = ".-0";
+	flags = ".-0*";
 	while (flags[i])
 	{
 		if (flags[i] == c)
-			return (i);
+			return (1);
 		i++;
 	}
 	return (-1);

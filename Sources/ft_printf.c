@@ -3,27 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 12:28:48 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/13 12:31:58 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/08/18 22:41:42 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Include/ft_printf.h"
 #include <stdio.h>
 
-void		ft_print_struc(t_prtf struc)
-{
-	printf("PRINT STRUC :\n");
-	printf("DOT	= '%d'\n", struc.dot);
-	printf("PAD	= '%d'\n", struc.pad);
-	printf("ZERO = '%d'\n", struc.zero);
-	printf("SIDE = '%d'\n", struc.side);
-	printf("WIDTH = '%d'\n", struc.width);
-	printf("FILL = '%c'\n", struc.fill);
-	printf("TYPE = '%c'\n", struc.type);
-}
+t_tab		g_tab[9] = {
+	{'c', &ft_c}, {'s', &ft_s}, {'p', &ft_p},
+	{'d', &ft_d}, {'i', &ft_d}, {'u', &ft_u},
+	{'x', &ft_x}, {'X', &ft_xx}, {'%', &ft_prc}
+};
 
 int			ft_printf(const char *format, ...)
 {
@@ -37,8 +31,9 @@ int			ft_printf(const char *format, ...)
 		if (format[struc.i] == '%')
 		{
 			struc.i++;
-			ft_parse(format, &struc, &args);
-			ft_print_specifier(format, &args, &struc);
+			ft_parse((char *)format, &struc, &args);
+			//printf("CHECKTYPE = %d | %c\n", ft_checktypes(format[struc.i]), format[struc.i]);
+			g_tab[ft_checktypes(format[struc.i])].tabFunc(&args, &struc);
 		}
 		else
 			ft_putchar(format[struc.i], &struc);

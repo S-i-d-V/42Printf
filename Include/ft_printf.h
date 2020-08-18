@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 12:11:39 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/13 15:49:02 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/08/18 23:44:22 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,15 @@ typedef struct	s_prtf
 	int ret;
 
 	int pad;	//1 Oui 0 Non
-	int zero;	//1 Oui 0 Non
 	int dot;	//1 Oui 0 Non
-	int side;	//1 FILL AVANT 0 FILL APRES
+	int zero;	//1 Oui 0 Non
 
-	int width;	//Precision de largeur
-	char fill;	//' ' ou '0' caractere de remplissage
-	char type;	//cspdiuxX%
+	int prec;	//Longueur maximale
+	int width;	//Largeur minimale
 
-	int len;
+	char type;
 	int neg;
+	int len;
 }				t_prtf;
 
 //Definition d'une structure pour declarer le tableau de fonction;
@@ -57,49 +56,26 @@ void			ft_prc(va_list *args, t_prtf *struc);
 //Prototypes fonctions conversions + width/dot/...;
 //	C;
 void			ft_c(va_list *args, t_prtf *struc);
-void			width_c(char c, t_prtf *struc);
-void			pad_c(char c, t_prtf *struc);
-void			zero_c(char c, t_prtf *struc);
 //	S;
 void			ft_s(va_list *args, t_prtf *struc);
-void			pad_s(char *str, t_prtf *struc);
-void			width_s(char *str, t_prtf *struc);
-void			zero_s(char *str, t_prtf *struc);
+void			ft_display_string(char *str, t_prtf *struc);
+void			ft_pad_string(char *str, t_prtf *struc);
+void			ft_dot_string(char *str, t_prtf *struc);
 //	D|I;
 void			ft_d(va_list *args, t_prtf *struc);
-void			pad_d(char *str, t_prtf *struc);
-void			width_d(char *str, t_prtf *struc);
-void			zero_d(char *str, t_prtf *struc);
-void			dot_d(char *str, t_prtf *struc);
+void			ft_display_int(char *str, t_prtf *struc);
 //	U;
 void			ft_u(va_list *args, t_prtf *struc);
-void			pad_u(char *str, t_prtf *struc);
-void			width_u(char *str, t_prtf *struc);
-void			zero_u(char *str, t_prtf *struc);
-void			dot_u(char *str, t_prtf *struc);
 //	X;
 void			ft_x(va_list *args, t_prtf *struc);
-void			pad_x(char *str, t_prtf *struc);
-void			width_x(char *str, t_prtf *struc);
-void			zero_x(char *str, t_prtf *struc);
-void			dot_x(char *str, t_prtf *struc);
 //	XX;
 void			ft_xx(va_list *args, t_prtf *struc);
-void			pad_xx(char *str, t_prtf *struc);
-void			width_xx(char *str, t_prtf *struc);
-void			zero_xx(char *str, t_prtf *struc);
-void			dot_xx(char *str, t_prtf *struc);
 //	P;
 void			ft_p(va_list *args, t_prtf *struc);
-void			pad_p(char *str, t_prtf *struc);
-void			width_p(char *str, t_prtf *struc);
-void			zero_p(char *str, t_prtf *struc);
-void			dot_p(char *str, t_prtf *struc);
 
 //Prototypes fonctions libc/modif;
 //	libft_mod;
 void			ft_putchar(char c, t_prtf *struc);
-void			ft_putstr(char *str, t_prtf *struc);
 int				ft_strlen(char *str);
 int				ft_isdigit(int c);
 char			*ft_strdup(char *s);
@@ -118,17 +94,16 @@ void			ft_fill(char c, int n, t_prtf *struc);
 char			*ft_revstr(char *str);
 int				ft_checkflags(char c);
 //	tab_functions;
-void			ft_print_specifier(const char *format, va_list *args, t_prtf *struc);
 int				ft_checktypes(char c);
 //	struct_functions;
 void			innit_struct(t_prtf *struc);
 void			reset_flags(t_prtf *struc);
 void			ft_getfill(t_prtf *struc);
 //	parse_functions;
-void			ft_parse_pad(char c, t_prtf *struc);
-void			ft_parse_zero(char c, t_prtf *struc);
-void			ft_parse_dot(const char *format, t_prtf *struc, va_list *args);
-void			ft_parse_width(const char *format, t_prtf *struc, va_list *args);
-void			ft_parse(const char *format, t_prtf *struc, va_list *args);
+void			ft_parse_zero(char *format, t_prtf *struc, va_list *args);
+void			ft_parse_pad(char *format, t_prtf *struc, va_list *args);
+void			ft_parse_dot(char *format, t_prtf *struc, va_list *args);
+void			ft_parse_width(char *format, t_prtf *struc, va_list *args);
+void			ft_parse(char *format, t_prtf *struc, va_list *args);
 
 #endif

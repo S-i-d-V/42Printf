@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft_mod.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 12:35:43 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/13 12:42:42 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/08/18 19:43:57 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,6 @@ void	ft_putchar(char c, t_prtf *struc)
 {
 	write(1, &c, 1);
 	struc->ret++;
-}
-
-void	ft_putstr(char *str, t_prtf *struc)
-{
-	int i;
-
-	i = 0;
-	while (str[i])
-	{
-		ft_putchar(str[i], struc);
-		i++;
-	}
 }
 
 int		ft_strlen(char *str)

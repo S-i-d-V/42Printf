@@ -1,23 +1,37 @@
 #include "Include/ft_printf.h"
 
 int main()
-{
-	char *str;
+{	
+	int nb;
+	int neg;
+    int prec;
+    int width;
 
-	str = "abcdefghijklmnopq";
+    nb = 456;
+	neg = -456;
+    prec = 5;
+    width = 15;
+
+	printf("PRECISION : %d\n", prec);
+    printf("LUI . : '%.*d' | '%.*d'\n\n", prec, nb, prec, neg);
 	
-	printf("W | LUI : '%-7.5s'\n", str);
-	ft_printf("W | MOI : '%-7.5s'\n\n", str);
+	ft_printf("MOI . : '%.*d' | '%.*d'\n\n", prec, nb, prec, neg);
+
+    printf("WIDTH : %d\n", width);
+    printf("LUI 5 : '%*d' | '%*d'\n", width, nb, width, neg);
+    printf("LUI - : '%-*d' | '%-*d'\n", width, nb, width, neg);
+    printf("LUI 0 : '%0*d' | '%0*d'\n\n", width, nb, width, neg);
+	
+	ft_printf("MOI 5 : '%*d' | '%*d'\n", width, nb, width, neg);
+    ft_printf("MOI - : '%-*d' | '%-*d'\n", width, nb, width, neg);
+    ft_printf("MOI 0 : '%0*d' | '%0*d'\n\n", width, nb, width, neg);
+
+    /*printf("COMBO : P = %d | W = %d\n", prec, width);
+    printf("LUI -. : '%-*.*d' | '%-*.*d'\n", width, prec, nb, width, prec, neg);
+    printf("LUI 5. : '%*.*d' | '%*.*d'\n", prec, width, nb, prec, width, neg);
+    printf("LUI 0. : '%0*.*d' | '%0*.*d'\n\n", width, prec, nb, width, prec, neg);
+	
+	ft_printf("MOI -. : '%-*.*d' | '%-*.*d'\n", width, prec, nb, width, prec, neg);
+    ft_printf("MOI 5. : '%*.*d' | '%*.*d'\n", prec, width, nb, prec, width, neg);
+    ft_printf("MOI 0. : '%0*.*d' | '%0*.*d'\n\n", width, prec, nb, width, prec, neg);*/
 }
-
-/*	printf("W | LUI : '%1c''%2c''%3c''%4c'\n", c, c, c, c);
-	ft_printf("W | MOI : '%1c''%2c''%3c''%4c'\n\n", c, c, c, c);
-
-	printf("- | LUI : '%-1c''%-2c''%-3c''%-4c'\n", c, c, c, c);
-	ft_printf("- | MOI : '%-1c''%-2c''%-3c''%-4c'\n\n", c, c, c, c);
-
-	printf(". | LUI : '%.1c''%.2c''%.3c''%.4c'\n", c, c, c, c);
-	ft_printf(". | MOI : '%.1c''%.2c''%.3c''%.4c'\n\n", c, c, c, c);
-
-	printf("0 | LUI : '%01c''%02c''%03c''%04c'\n", c, c, c, c);
-	ft_printf("0 | MOI : '%01c''%02c''%03c''%04c'\n\n", c, c, c, c);*/

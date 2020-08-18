@@ -3,118 +3,99 @@
 /*                                                        :::      ::::::::   */
 /*   parse_functions.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 12:46:35 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/13 16:20:30 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/08/19 00:04:40 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Include/ft_printf.h"
 
-void		ft_parse_pad(char c, t_prtf *struc)
+void		ft_parse_zero(char *format, t_prtf *struc, va_list *args)
 {
-	struc->pad = (c == '-' ? 1 : 0);
-	if (struc->pad)
+	struc->zero = 1;
+	struc->i++;
+	if (format[struc->i] == '*')
 	{
-		struc->fill  = ' ';
+		struc->width = va_arg(*args, int);
+		struc->i++;
+	}
+	while (ft_isdigit(format[struc->i]))
+	{
+		struc->width = struc->width * 10 + (format[struc->i] - 48);
 		struc->i++;
 	}
 }
 
-void		ft_parse_zero(char c, t_prtf *struc)
+void		ft_parse_dot(char *format, t_prtf *struc, va_list *args)
 {
-	struc->zero = (c == '0' ? 1 : 0);
-	if (struc->zero)
+	struc->dot = 1;
+	struc->i++;
+	if (format[struc->i] == '*')
 	{
-		struc->fill  = '0';
+		struc->prec = va_arg(*args, int);
+		struc->i++;
+	}
+	while (ft_isdigit(format[struc->i]))
+	{
+		struc->prec = struc->prec * 10 + (format[struc->i] - 48);
 		struc->i++;
 	}
 }
 
-void		ft_parse_dot(const char *format, t_prtf *struc, va_list *args)
+void		ft_parse_pad(char *format, t_prtf *struc, va_list *args)
 {
-	if (format[struc->i] == '.')
+	struc->pad = 1;
+	struc->zero = 0;
+	struc->i++;
+	if (format[struc->i] == '*')
 	{
+		struc->width = va_arg(*args, int);
 		struc->i++;
-		struc->dot = 1;
-		ft_parse_width(format, struc, args);
+	}
+	while (ft_isdigit(format[struc->i]))
+	{
+		struc->width = struc->width * 10 + (format[struc->i] - 48);
+		struc->i++;
 	}
 }
 
-void		ft_parse_width(const char *format, t_prtf *struc, va_list *args)
+void		ft_parse_width(char *format, t_prtf *struc, va_list *args)
 {
 	if (format[struc->i] == '*')
 	{
 		struc->width = va_arg(*args, int);
 		struc->i++;
 	}
-	else
+	while (ft_isdigit(format[struc->i]))
 	{
-		while (ft_isdigit(format[struc->i]))
-		{
-			struc->width = struc->width * 10 + format[struc->i] - 48;
-			struc->i++;
-		}
+		struc->width = struc->width * 10 + (format[struc->i] - 48);
+		struc->i++;
 	}
 }
 
-/*void		ft_parse_pad(char c, t_prtf *struc)
-{
-
-}
-
-void		ft_parse_zero(char c, t_prtf *struc)
-{
-	
-}
-
-void		ft_parse_dot(const char *format, t_prtf *struc)
-{
-
-}
-
-void		ft_parse_width(const char *format, t_prtf *struc, va_list *args)
-{
-	if (format[struc->i] == '*')
-		struc->width = va_arg(*args, int);
-	else
-		struc->width = struc->width * 10 + format[struc->i] - 48;
-}*/
-
-void		ft_parse(const char *format, t_prtf *struc, va_list *args)
-{
-	reset_flags(struc);
-	while (ft_checktypes(format[struc->i]) == -1)
-	{
-		ft_parse_pad(format[struc->i], struc);
-		ft_parse_zero(format[struc->i], struc);
-		ft_parse_dot(format, struc, args);
-		ft_parse_width(format, struc, args);
-		if (ft_checktypes(format[struc->i]))
-			break;
-	}
-	struc->type = format[struc->i];
-	ft_getfill(struc);
-}
-
-/*void		ft_parse(const char *format, t_prtf *struc, va_list *args)
+void		ft_parse(char *format, t_prtf *struc, va_list *args)
 {
 	reset_flags(struc);
 	while (format[struc->i])
 	{
-		if (!isdigit(format[struc->i]) && !ft_checkflags(format[struc->i]))
+		if (format[struc->i] == '0' && !struc->width)
+			ft_parse_zero(format, struc, args);
+		if (!ft_isdigit(format[struc->i]) && ft_checkflags(format[struc->i]) < 0)
 			break;
-		if (format[struc->i] == '0') // FORCEMENT EN PREMIER
-			ft_parse_zero(format[struc->i], struc);
-		if (format[struc->i] == '.')
-			ft_parse_dot(format[struc->i], struc);
-		if (format[struc->i] == '-')
-			ft_parse_pad(format[struc->i], struc);
 		if (format[struc->i] == '*' || ft_isdigit(format[struc->i]))
-			ft_parse_width(format[struc->i], struc, args);
-		if (ft_checktypes(format[struc->i]))
+			ft_parse_width(format, struc, args);
+		if (format[struc->i] == '-')
+			ft_parse_pad(format, struc, args);
+		if (format[struc->i] == '.')
+			ft_parse_dot(format, struc, args);
+		if (ft_checktypes(format[struc->i]) >= 0)
 			break;
 		struc->i++;
 	}
-}*/
+	/*printf("DOT = %d\n", struc->dot);
+	printf("PAD = %d\n", struc->pad);
+	printf("WIDTH = %d\n", struc->width);
+	printf("PREC = %d\n", struc->prec);*/
+}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_p.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 12:31:25 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/13 12:33:25 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/08/18 19:41:04 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,73 +20,6 @@ void					ft_p(va_list *args, t_prtf *struc)
 	n = va_arg(*args, unsigned long long);
 	str = ft_ltoa_hexa(n, "0123456789abcdef");
 	struc->len = ft_strlen(str);
-	if (struc->dot && struc->side == 1)
-		dot_p(str, struc);
-	else if (struc->pad && struc->side == 0)
-		pad_p(str, struc);
-	else if (!struc->pad && !struc->dot && !struc->zero)
-		width_p(str, struc);
-	else if (struc->zero)
-		zero_p(str, struc);
+	ft_strto(str, struc->len, struc);
 	free(str);
-}
-
-void					dot_p(char *str, t_prtf *struc)
-{
-	if (struc->len < struc->width)
-	{
-		ft_fill('0', (struc->width - struc->len + 2), struc);
-		ft_putstr("0x", struc);
-		ft_putstr(str, struc);
-	}
-	else
-	{
-		ft_putstr("0x", struc);
-		ft_putstr(str, struc);
-	}
-}
-
-void					pad_p(char *str, t_prtf *struc)
-{
-	if (struc->len < struc->width)
-	{
-		ft_putstr("0x", struc);
-		ft_putstr(str, struc);
-		ft_fill(' ', (struc->width - struc->len + 2), struc);
-	}
-	else
-	{
-		ft_putstr("0x", struc);
-		ft_putstr(str, struc);
-	}
-}
-
-void					width_p(char *str, t_prtf *struc)
-{
-	if (struc->len < struc->width)
-	{
-		ft_fill(' ', (struc->width - struc->len + 2), struc);
-		ft_putstr("0x", struc);
-		ft_putstr(str, struc);
-	}
-	else
-	{
-		ft_putstr("0x", struc);
-		ft_putstr(str, struc);
-	}
-}
-
-void					zero_p(char *str, t_prtf *struc)
-{
-	if (struc->len < struc->width)
-	{
-		ft_fill('0', (struc->width - struc->len + 2), struc);
-		ft_putstr("0x", struc);
-		ft_putstr(str, struc);
-	}
-	else
-	{
-		ft_putstr("0x", struc);
-		ft_putstr(str, struc);
-	}
 }
