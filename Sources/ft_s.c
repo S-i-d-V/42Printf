@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_s.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 12:28:55 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/18 23:19:16 by ugotheveny       ###   ########.fr       */
+/*   Updated: 2020/08/19 12:32:30 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,11 @@ void		ft_s(va_list *args, t_prtf *struc)
 	ft_display_string(str, struc);
 }
 
-void		ft_pad_string(char *str, t_prtf *struc)
+void		ft_display_string(char *str, t_prtf *struc)
 {
-	if (struc->dot)
+	if (struc->pad)
+	{
+		if (struc->dot)
 		{
 			ft_strto(str, struc->prec, struc);
 			ft_fill(' ', struc->width - struc->prec, struc);
@@ -33,30 +35,35 @@ void		ft_pad_string(char *str, t_prtf *struc)
 			ft_strto(str, struc->len, struc);
 			ft_fill(' ', struc->width - struc->len, struc);
 		}
-}
-
-void		ft_dot_string(char *str, t_prtf *struc)
-{
-	if (struc->width)
-	{
-		ft_fill(' ', struc->width - struc->prec, struc);
-		ft_strto(str, struc->prec, struc);
 	}
-	else
-		ft_strto(str, struc->prec, struc);
-}
-
-void		ft_display_string(char *str, t_prtf *struc)
-{
-	if (struc->pad)
-		ft_pad_string(str, struc);
+	else if (struc->zero)
+	{
+		if (struc->dot)
+		{
+			ft_fill('0', struc->width - struc->prec, struc);
+			ft_strto(str, struc->prec, struc);
+		}
+		else
+		{
+			ft_fill('0', struc->width - struc->len, struc);
+			ft_strto(str, struc->len, struc);
+		}
+	}
+	else if (!struc->pad && struc->width)
+	{
+		if (struc->dot)
+		{
+			ft_fill(' ', struc->width - struc->prec, struc);
+			ft_strto(str, struc->prec, struc);
+		}
+		else
+		{
+			ft_fill(' ', struc->width - struc->len, struc);
+			ft_strto(str, struc->len, struc);
+		}
+	}
 	else if (struc->dot)
-		ft_dot_string(str, struc);
-	else if (!struc->pad && !struc->dot && struc->width)
-	{
-		ft_fill(' ', struc->width - struc->len, struc);
-		ft_strto(str, struc->len, struc);
-	}
+		ft_strto(str, struc->prec, struc);
 	else
 		ft_strto(str, struc->len, struc);
 }

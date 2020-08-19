@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 12:11:39 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/18 23:44:22 by ugotheveny       ###   ########.fr       */
+/*   Updated: 2020/08/19 12:22:59 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,19 +59,21 @@ void			ft_c(va_list *args, t_prtf *struc);
 //	S;
 void			ft_s(va_list *args, t_prtf *struc);
 void			ft_display_string(char *str, t_prtf *struc);
-void			ft_pad_string(char *str, t_prtf *struc);
-void			ft_dot_string(char *str, t_prtf *struc);
 //	D|I;
 void			ft_d(va_list *args, t_prtf *struc);
 void			ft_display_int(char *str, t_prtf *struc);
 //	U;
 void			ft_u(va_list *args, t_prtf *struc);
+void			ft_display_uint(char *str, t_prtf *struc);
 //	X;
 void			ft_x(va_list *args, t_prtf *struc);
+void			ft_display_xint(char *str, t_prtf *struc);
 //	XX;
 void			ft_xx(va_list *args, t_prtf *struc);
+void			ft_display_xxint(char *str, t_prtf *struc);
 //	P;
 void			ft_p(va_list *args, t_prtf *struc);
+void			ft_display_pointer(char *str, t_prtf *struc);
 
 //Prototypes fonctions libc/modif;
 //	libft_mod;

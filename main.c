@@ -2,40 +2,33 @@
 
 int main()
 {	
-	int nb;
-	int neg;
+	char *str;
     int prec;
     int width;
 
-    nb = 456574;
-	neg = -456574;
+    str = "abcdefghij";
     prec = 5;
     width = 15;
 	printf("PRECISION : %d\n", prec);
-    printf("LUI . : '%.*d' | '%.*d'\n\n", prec, nb, prec, neg);
+    printf("LUI . : '%.*s'\n\n", prec, str);
 	
-	ft_printf("MOI . : '%.*d' | '%.*d'\n\n", prec, nb, prec, neg);
+	ft_printf("MOI . : '%.*s'\n\n", prec, str);
 
     printf("WIDTH : %d\n", width);
-    printf("LUI 5 : '%*d' | '%*d'\n", width, nb, width, neg);
-    printf("LUI - : '%-*d' | '%-*d'\n", width, nb, width, neg);
-    printf("LUI 0 : '%0*d' | '%0*d'\n\n", width, nb, width, neg);
+    printf("LUI 5 : '%*s'\n", width, str);
+    printf("LUI - : '%-*s'\n", width, str);
+    printf("LUI 0 : '%0*s'\n\n", width, str);
 	
-	ft_printf("MOI 5 : '%*d' | '%*d'\n", width, nb, width, neg);
-    ft_printf("MOI - : '%-*d' | '%-*d'\n", width, nb, width, neg);
-    ft_printf("MOI 0 : '%0*d' | '%0*d'\n\n", width, nb, width, neg);
+	ft_printf("MOI 5 : '%*s'\n", width, str);
+    ft_printf("MOI - : '%-*s'\n", width, str);
+    ft_printf("MOI 0 : '%0*s'\n\n", width, str);
 
     printf("COMBO : P = %d | W = %d\n", prec, width);
-    printf("LUI -. : '%-*.*d' | '%-*.*d'\n", width, prec, nb, width, prec, neg);
-    printf("LUI 5. : '%*.*d' | '%*.*d'\n", prec, width, nb, prec, width, neg);
-    printf("LUI 0. : '%0*.*d' | '%0*.*d'\n\n", width, prec, nb, width, prec, neg);
+    printf("LUI -. : '%-*.*s'\n", width, prec, str);
+    printf("LUI 5. : '%*.*s'\n", prec, width, str);
+    printf("LUI 0. : '%0*.*s'\n\n", width, prec, str);
 	
-	ft_printf("MOI -. : '%-*.*d' | '%-*.*d'\n", width, prec, nb, width, prec, neg);
-    ft_printf("MOI 5. : '%*.*d' | '%*.*d'\n", prec, width, nb, prec, width, neg);
-    ft_printf("MOI 0. : '%0*.*d' | '%0*.*d'\n\n", width, prec, nb, width, prec, neg);
+	ft_printf("MOI -. : '%-*.*s'\n", width, prec, str);
+    ft_printf("MOI 5. : '%*.*s'\n", prec, width, str);
+    ft_printf("MOI 0. : '%0*.*s'\n\n", width, prec, str);
 }
-
-/*printf("LUI -. : '%-*.*d'\n", width, prec, neg);
-	ft_printf("MOI -. : '%-*.*d'\n", width, prec, neg);
-    printf("LUI 0. : '%0*.*d'\n", width, prec, neg);
-    ft_printf("MOI 0. : '%0*.*d'\n\n", width, prec, neg);*/

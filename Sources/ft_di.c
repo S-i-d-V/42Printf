@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_di.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 12:28:16 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/19 00:55:29 by ugotheveny       ###   ########.fr       */
+/*   Updated: 2020/08/19 10:43:31 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,6 @@ void		ft_display_int(char *str, t_prtf *struc)
 				ft_fill('0', struc->width - struc->len, struc);
 				ft_strto(str, struc->len, struc);
 			}
-			
 		}
 	}
 	else if (!struc->pad && struc->width)
@@ -120,7 +119,6 @@ void		ft_display_int(char *str, t_prtf *struc)
 				ft_fill(' ', struc->width - struc->len, struc);
 				ft_strto(str, struc->len, struc);
 			}
-			
 		}
 	}
 	else if (struc->dot)
