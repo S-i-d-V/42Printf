@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct_functions.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 12:46:15 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/18 19:41:04 by ugotheveny       ###   ########.fr       */
+/*   Updated: 2020/08/19 16:18:13 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

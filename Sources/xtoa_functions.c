@@ -6,7 +6,7 @@
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 12:37:45 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/13 12:42:42 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/08/19 15:50:15 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ char	*ft_itoa_hexa(unsigned int n, char *base)
 	i = 0;
 	if ((str = malloc(sizeof(char) * (len + 1))) == NULL)
 		return (NULL);
+	if (n == 0)
+		return(ft_strdup("0"));
 	while (n > 0)
 	{
 		str[i] = base[n % 16];

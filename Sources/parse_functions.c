@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_functions.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 12:46:35 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/19 00:04:40 by ugotheveny       ###   ########.fr       */
+/*   Updated: 2020/08/19 16:18:13 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,4 @@ void		ft_parse(char *format, t_prtf *struc, va_list *args)
 			break;
 		struc->i++;
 	}
-	/*printf("DOT = %d\n", struc->dot);
-	printf("PAD = %d\n", struc->pad);
-	printf("WIDTH = %d\n", struc->width);
-	printf("PREC = %d\n", struc->prec);*/
 }

@@ -6,7 +6,7 @@
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 12:11:39 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/19 12:22:59 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/08/19 16:18:13 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ typedef struct	s_prtf
 	int prec;	//Longueur maximale
 	int width;	//Largeur minimale
 
-	char type;
 	int neg;
 	int len;
 }				t_prtf;
