@@ -6,7 +6,7 @@
 /*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 12:28:08 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/25 00:35:00 by ugotheveny       ###   ########.fr       */
+/*   Updated: 2020/08/25 00:56:17 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ void		ft_c(va_list *args, t_prtf *struc)
 	char	c;
 
 	c = (char)va_arg(*args, int);
+	if (struc->width < 0)
+	{
+		struc->pad = 1;
+		struc->width = struc->width * -1;
+	}
 	if (struc->pad)
 	{
 		ft_putchar(c, struc);

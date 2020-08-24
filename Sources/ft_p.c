@@ -6,7 +6,7 @@
 /*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 12:31:25 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/25 00:25:55 by ugotheveny       ###   ########.fr       */
+/*   Updated: 2020/08/25 00:59:14 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void					ft_p(va_list *args, t_prtf *struc)
 	n = va_arg(*args, unsigned long long);
 	if (n)
 		str = ft_itoa_hexa(n, "0123456789abcdef");
+	else if (!n && struc->dot)
+		str = ft_strdup("");
 	else
 		str = ft_strdup("0");
 	struc->len = ft_strlen(str);
