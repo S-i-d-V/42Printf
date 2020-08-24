@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 12:11:39 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/19 16:18:13 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/08/23 22:15:05 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,17 +80,16 @@ void			ft_putchar(char c, t_prtf *struc);
 int				ft_strlen(char *str);
 int				ft_isdigit(int c);
 char			*ft_strdup(char *s);
+int				ft_atoi(const char *str);
 //	xtoa_functions;
-char			*ft_itoa(int n);
+char			*ft_itoapos(int n);
 char			*ft_uitoa(unsigned int n);
-char			*ft_itoa_hexa(unsigned int n, char *base);
-char			*ft_ltoa_hexa(unsigned long long n, char *base);
+char			*ft_itoa_hexa(unsigned long long n, char *base);
 //	xtoa_necessaries;
 int				lennb(int n);
-void			itoasign(int *n, unsigned int *sign);
-int				ft_lenhexa(unsigned int n);
+int				ft_lenhexa(unsigned long long n);
 //	supp_functions;
-int				ft_strto(char *str, int n, t_prtf *struc);
+void			ft_strto(char *str, int n, t_prtf *struc);
 void			ft_fill(char c, int n, t_prtf *struc);
 char			*ft_revstr(char *str);
 int				ft_checkflags(char c);
@@ -99,12 +98,12 @@ int				ft_checktypes(char c);
 //	struct_functions;
 void			innit_struct(t_prtf *struc);
 void			reset_flags(t_prtf *struc);
-void			ft_getfill(t_prtf *struc);
 //	parse_functions;
 void			ft_parse_zero(char *format, t_prtf *struc, va_list *args);
 void			ft_parse_pad(char *format, t_prtf *struc, va_list *args);
 void			ft_parse_dot(char *format, t_prtf *struc, va_list *args);
 void			ft_parse_width(char *format, t_prtf *struc, va_list *args);
 void			ft_parse(char *format, t_prtf *struc, va_list *args);
+int				ft_err_parse(char *format, int i);
 
 #endif

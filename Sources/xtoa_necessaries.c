@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   xtoa_necessaries.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 12:40:09 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/13 12:42:42 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/08/23 22:04:15 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	lennb(int n)
 	return (len);
 }
 
-int		ft_lenhexa(unsigned int n)
+int		ft_lenhexa(unsigned long long n)
 {
 	int i;
 
@@ -42,13 +42,4 @@ int		ft_lenhexa(unsigned int n)
 		i++;
 	}
 	return (i);
-}
-
-void	itoasign(int *n, unsigned int *sign)
-{
-	if (*n < 0)
-	{
-		*n = *n * -1;
-		*sign = 1;
-	}
 }

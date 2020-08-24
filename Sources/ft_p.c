@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_p.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 12:31:25 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/19 12:03:27 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/08/23 22:15:05 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ void					ft_p(va_list *args, t_prtf *struc)
 	char				*str;
 
 	n = va_arg(*args, unsigned long long);
-	str = ft_ltoa_hexa(n, "0123456789abcdef");
+	if (n)
+		str = ft_itoa_hexa(n, "0123456789abcdef");
+	else
+		str = ft_strdup("");
 	struc->len = ft_strlen(str);
 	ft_display_pointer(str, struc);
 	free(str);
@@ -69,9 +72,26 @@ void		ft_display_pointer(char *str, t_prtf *struc)
 		}
 		else
 		{
-			ft_fill(' ', struc->width - (struc->len + 2), struc);
-			ft_strto("0x", 2, struc);
-			ft_strto(str, struc->len, struc);
+			if (str[0] == '\0')
+			{
+				if (struc->dot)
+				{
+					ft_fill(' ', struc->width - (struc->len + 2), struc);
+					ft_strto("0x", 2, struc);
+				}
+				else
+				{
+					ft_fill(' ', struc->width - (struc->len + 3), struc);
+					ft_strto("0x", 2, struc);
+					ft_putchar('0', struc);
+				}
+			}
+			else
+			{
+				ft_fill(' ', struc->width - (struc->len + 2), struc);
+				ft_strto("0x", 2, struc);
+				ft_strto(str, struc->len, struc);
+			}
 		}
 	}
 	else if (struc->dot)
@@ -82,7 +102,15 @@ void		ft_display_pointer(char *str, t_prtf *struc)
 	}
 	else
 	{
-		ft_strto("0x", 2, struc);
-		ft_strto(str, struc->len, struc);
+		if (str[0] == '\0')
+		{
+			ft_strto("0x", 2, struc);
+			ft_putchar('0', struc);
+		}
+		else
+		{
+			ft_strto("0x", 2, struc);
+			ft_strto(str, struc->len, struc);
+		}
 	}
 }

@@ -6,13 +6,13 @@
 /*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 12:44:54 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/18 22:49:38 by ugotheveny       ###   ########.fr       */
+/*   Updated: 2020/08/23 17:23:34 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Include/ft_printf.h"
 
-int		ft_strto(char *str, int n, t_prtf *struc)
+void		ft_strto(char *str, int n, t_prtf *struc)
 {
 	int i;
 	int len;
@@ -26,7 +26,6 @@ int		ft_strto(char *str, int n, t_prtf *struc)
 		ft_putchar(str[i], struc);
 		i++;
 	}
-	return (i);
 }
 
 void	ft_fill(char c, int n, t_prtf *struc)

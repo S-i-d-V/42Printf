@@ -6,7 +6,7 @@
 /*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 12:28:48 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/18 22:41:42 by ugotheveny       ###   ########.fr       */
+/*   Updated: 2020/08/21 18:28:52 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ int			ft_printf(const char *format, ...)
 	va_start(args, format);
 	while (format[struc.i])
 	{
-		if (format[struc.i] == '%')
+		if (format[struc.i] == '%' && format[struc.i + 1])
 		{
 			struc.i++;
 			ft_parse((char *)format, &struc, &args);
-			//printf("CHECKTYPE = %d | %c\n", ft_checktypes(format[struc.i]), format[struc.i]);
-			g_tab[ft_checktypes(format[struc.i])].tabFunc(&args, &struc);
+			if (ft_checktypes(format[struc.i]) != -1)
+				g_tab[ft_checktypes(format[struc.i])].tabFunc(&args, &struc);
 		}
 		else
 			ft_putchar(format[struc.i], &struc);

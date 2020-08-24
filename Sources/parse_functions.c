@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_functions.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 12:46:35 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/19 16:18:13 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/08/23 18:41:59 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,41 @@ void		ft_parse_width(char *format, t_prtf *struc, va_list *args)
 	}
 }
 
+int			ft_err_parse(char *format, int i)
+{
+	int check;
+
+	check = 0;
+	while (format[i] && check != 1)
+	{
+		if (!ft_isdigit(format[i]) && ft_checkflags(format[i]) < 0)
+		{
+			if (ft_checktypes(format[i]) >= 0)
+				check = 1;
+			else
+				return (-1);
+		}
+		else if (ft_checktypes(format[i]) >= 0)
+		{
+			check = 1;
+			break;
+		}
+		else
+			i++;
+	}
+	if (check == 1)
+		return (1);
+	else
+		return (-1);
+}
+
 void		ft_parse(char *format, t_prtf *struc, va_list *args)
 {
 	reset_flags(struc);
 	while (format[struc->i])
 	{
+		if (ft_err_parse(format, struc->i) == -1)
+			break;
 		if (format[struc->i] == '0' && !struc->width)
 			ft_parse_zero(format, struc, args);
 		if (!ft_isdigit(format[struc->i]) && ft_checkflags(format[struc->i]) < 0)
