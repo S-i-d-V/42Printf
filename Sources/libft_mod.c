@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft_mod.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 12:35:43 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/23 21:28:05 by ugotheveny       ###   ########.fr       */
+/*   Updated: 2020/08/24 16:05:22 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	*ft_strdup(char *s)
 	return (dup);
 }
 
-int		ft_atoi(const char *str)
+int		ft_atoi(char *str)
 {
 	int i;
 	int nb;
@@ -77,5 +77,7 @@ int		ft_atoi(const char *str)
 	}
 	if (nbsigne == 1)
 		nb = nb * -1;
+	if (ft_strlen(str) > 1 || str[0] == 0)
+		return (-1);
 	return (nb);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 12:11:39 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/23 22:15:05 by ugotheveny       ###   ########.fr       */
+/*   Updated: 2020/08/24 16:05:22 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct	s_prtf
 
 	int neg;
 	int len;
+	int precisneg;
 }				t_prtf;
 
 //Definition d'une structure pour declarer le tableau de fonction;
@@ -80,7 +81,7 @@ void			ft_putchar(char c, t_prtf *struc);
 int				ft_strlen(char *str);
 int				ft_isdigit(int c);
 char			*ft_strdup(char *s);
-int				ft_atoi(const char *str);
+int				ft_atoi(char *str);
 //	xtoa_functions;
 char			*ft_itoapos(int n);
 char			*ft_uitoa(unsigned int n);

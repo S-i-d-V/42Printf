@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_x.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 12:30:17 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/23 22:22:44 by ugotheveny       ###   ########.fr       */
+/*   Updated: 2020/08/24 16:04:55 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void		ft_display_xint(char *str, t_prtf *struc)
 	else if (struc->dot)
 	{
 		if (struc->prec == 0 && ft_atoi(str) == 0)
-				struc->len = struc->prec;
+			struc->len = struc->prec;
 		ft_fill('0', struc->prec - struc->len, struc);
 		ft_strto(str, struc->len, struc);
 	}

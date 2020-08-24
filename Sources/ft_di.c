@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_di.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 12:28:16 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/23 23:08:12 by ugotheveny       ###   ########.fr       */
+/*   Updated: 2020/08/24 15:18:20 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ void	ft_d(va_list *args, t_prtf *struc)
 	n = va_arg(*args, int);
 	if (n < 0)
 		struc->neg = 1;
+	if (struc->prec < 0)
+	{
+		struc->prec = 1;
+		struc->precisneg = 1;
+	}
 	str = ft_itoapos(n);
 	struc->len = ft_strlen(str);
 	ft_display_int(str, struc);
@@ -29,15 +34,17 @@ void	ft_d(va_list *args, t_prtf *struc)
 
 void		ft_display_int(char *str, t_prtf *struc)
 {
+	//printf("PREC = %d | WITH = %d\n", struc->prec, struc->width);
 	if (struc->width < 0)
 	{
 		struc->pad = 1;
 		struc->width = struc->width * -1;
 	}
 	if (struc->dot && struc->prec == 0 && ft_atoi(str) == 0)
-		struc->len = struc->prec;
-	if (struc->dot && struc->prec < struc->len)
+		struc->len = 0;
+	else if (struc->dot && struc->prec < struc->len)
 		struc->prec = struc->len;
+	//printf("PREC = %d | WITH = %d\n", struc->prec, struc->width);
 	if (struc->pad)
 	{
 		if (struc->dot)
@@ -95,7 +102,7 @@ void		ft_display_int(char *str, t_prtf *struc)
 	else if (struc->dot)
 	{
 		if (struc->prec == 0 && ft_atoi(str) == 0)
-				struc->len = struc->prec;
+			struc->len = struc->prec;
 		if (struc->neg)
 			ft_putchar('-', struc);
 		ft_fill('0', struc->prec - struc->len, struc);

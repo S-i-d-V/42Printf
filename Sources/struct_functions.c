@@ -6,7 +6,7 @@
 /*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 12:46:15 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/19 16:18:13 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/08/24 14:55:19 by ugtheven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	innit_struct(t_prtf *struc)
 	struc->prec = 0;
 	struc->neg = 0;
 	struc->len = 0;
+	struc->precisneg = 0;
 }
 
 void	reset_flags(t_prtf *struc)
@@ -35,4 +36,5 @@ void	reset_flags(t_prtf *struc)
 	struc->prec = 0;
 	struc->neg = 0;
 	struc->len = 0;
+	struc->precisneg = 0;
 }
