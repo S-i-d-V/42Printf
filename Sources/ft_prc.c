@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_prc.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 12:28:39 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/19 15:44:54 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/08/25 14:03:38 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	ft_prc(va_list *args, t_prtf *struc)
 {
 	(void)args;
-
 	if (struc->pad)
 	{
 		ft_putchar('%', struc);
@@ -39,4 +38,3 @@ void	ft_prc(va_list *args, t_prtf *struc)
 	else
 		ft_putchar('%', struc);
 }
-

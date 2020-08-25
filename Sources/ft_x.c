@@ -6,7 +6,7 @@
 /*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 12:30:17 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/25 00:19:53 by ugotheveny       ###   ########.fr       */
+/*   Updated: 2020/08/25 14:47:31 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void				ft_x(va_list *args, t_prtf *struc)
 	str = NULL;
 }
 
-void		ft_display_xint(char *str, t_prtf *struc)
+void				ft_display_xint(char *str, t_prtf *struc)
 {
 	if (struc->width < 0)
 	{

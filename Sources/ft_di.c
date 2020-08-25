@@ -6,13 +6,13 @@
 /*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 12:28:16 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/25 00:14:58 by ugotheveny       ###   ########.fr       */
+/*   Updated: 2020/08/25 14:06:15 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Include/ft_printf.h"
 
-void	ft_d(va_list *args, t_prtf *struc)
+void		ft_d(va_list *args, t_prtf *struc)
 {
 	int		n;
 	char	*str;
@@ -34,7 +34,6 @@ void	ft_d(va_list *args, t_prtf *struc)
 
 void		ft_display_int(char *str, t_prtf *struc)
 {
-	//printf("PREC = %d | WITH = %d | PRECNEG = %d\n", struc->prec, struc->width, struc->precisneg);
 	if (struc->width < 0)
 	{
 		struc->pad = 1;
@@ -44,7 +43,6 @@ void		ft_display_int(char *str, t_prtf *struc)
 		struc->len = 0;
 	else if (struc->dot && struc->prec < struc->len)
 		struc->prec = struc->len;
-	//printf("PREC = %d | WITH = %d\n", struc->prec, struc->width);
 	if (struc->pad)
 	{
 		if (struc->dot)

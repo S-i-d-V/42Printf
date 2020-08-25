@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct_functions.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 12:46:15 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/24 14:55:19 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/08/25 14:34:18 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	innit_struct(t_prtf *struc)
 {
 	struc->i = 0;
 	struc->ret = 0;
-
 	struc->pad = 0;
 	struc->dot = 0;
 	struc->zero = 0;

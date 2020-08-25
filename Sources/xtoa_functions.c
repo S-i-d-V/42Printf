@@ -6,13 +6,13 @@
 /*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 12:37:45 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/23 22:22:44 by ugotheveny       ###   ########.fr       */
+/*   Updated: 2020/08/25 14:43:26 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Include/ft_printf.h"
 
-char		*ft_itoapos(int n)
+char				*ft_itoapos(int n)
 {
 	unsigned int	len;
 	char			*str;
@@ -20,7 +20,7 @@ char		*ft_itoapos(int n)
 	if (n == -2147483648)
 		return (ft_strdup("2147483648"));
 	if (n < 0)
-		n = n *-1;
+		n = n * -1;
 	len = lennb(n);
 	str = malloc(sizeof(char) * len + 1);
 	if (str == NULL)
@@ -37,10 +37,10 @@ char		*ft_itoapos(int n)
 	return (str);
 }
 
-char		*ft_uitoa(unsigned int n)
+char				*ft_uitoa(unsigned int n)
 {
 	unsigned int	len;
-	unsigned int 	tmp;
+	unsigned int	tmp;
 	char			*str;
 
 	len = 0;
@@ -65,16 +65,16 @@ char		*ft_uitoa(unsigned int n)
 	return (str);
 }
 
-char	*ft_itoa_hexa(unsigned long long n, char *base)
+char				*ft_itoa_hexa(unsigned long long n, char *base)
 {
-	int len;
-	int i;
-	char *str;
+	int				len;
+	int				i;
+	char			*str;
 
 	len = ft_lenhexa(n);
 	i = 0;
 	if (n == 0)
-		return(ft_strdup("0"));
+		return (ft_strdup("0"));
 	if ((str = malloc(sizeof(char) * (len + 1))) == NULL)
 		return (NULL);
 	while (n > 0)

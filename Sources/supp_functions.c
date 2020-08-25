@@ -6,7 +6,7 @@
 /*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 12:44:54 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/23 17:23:34 by ugotheveny       ###   ########.fr       */
+/*   Updated: 2020/08/25 14:46:48 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void		ft_strto(char *str, int n, t_prtf *struc)
 {
-	int i;
-	int len;
+	int		i;
+	int		len;
 
 	i = 0;
 	len = ft_strlen(str);
@@ -28,9 +28,9 @@ void		ft_strto(char *str, int n, t_prtf *struc)
 	}
 }
 
-void	ft_fill(char c, int n, t_prtf *struc)
+void		ft_fill(char c, int n, t_prtf *struc)
 {
-	int i;
+	int		i;
 
 	i = 0;
 	while (i < n)
@@ -40,11 +40,11 @@ void	ft_fill(char c, int n, t_prtf *struc)
 	}
 }
 
-char	*ft_revstr(char *str)
+char		*ft_revstr(char *str)
 {
-	int i;
-	int len;
-	char tmp;
+	int		i;
+	int		len;
+	char	tmp;
 
 	i = 0;
 	len = ft_strlen(str);
@@ -56,21 +56,5 @@ char	*ft_revstr(char *str)
 		str[len] = tmp;
 		i++;
 	}
-	return(str);
-}
-
-int			ft_checkflags(char c)
-{
-	int		i;
-	char	*flags;
-
-	i = 0;
-	flags = ".-0*";
-	while (flags[i])
-	{
-		if (flags[i] == c)
-			return (1);
-		i++;
-	}
-	return (-1);
+	return (str);
 }

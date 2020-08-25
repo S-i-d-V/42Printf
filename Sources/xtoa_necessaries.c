@@ -6,13 +6,13 @@
 /*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 12:40:09 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/23 22:04:15 by ugotheveny       ###   ########.fr       */
+/*   Updated: 2020/08/25 14:44:11 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Include/ft_printf.h"
 
-int	lennb(int n)
+int					lennb(int n)
 {
 	unsigned int	len;
 
@@ -31,9 +31,9 @@ int	lennb(int n)
 	return (len);
 }
 
-int		ft_lenhexa(unsigned long long n)
+int					ft_lenhexa(unsigned long long n)
 {
-	int i;
+	int				i;
 
 	i = 0;
 	while (n > 0)

@@ -1,18 +1,62 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tab_functions.c                                    :+:      :+:    :+:   */
+/*   err_functions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/13 12:45:31 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/18 22:37:16 by ugotheveny       ###   ########.fr       */
+/*   Created: 2020/08/25 14:15:05 by ugotheveny        #+#    #+#             */
+/*   Updated: 2020/08/25 14:43:04 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Include/ft_printf.h"
 
-int			ft_checktypes(char c)
+int			ft_err_parse(char *format, int i)
+{
+	int		check;
+
+	check = 0;
+	while (format[i] && check != 1)
+	{
+		if (!ft_isdigit(format[i]) && ft_isflags(format[i]) < 0)
+		{
+			if (ft_istypes(format[i]) >= 0)
+				check = 1;
+			else
+				return (-1);
+		}
+		else if (ft_istypes(format[i]) >= 0)
+		{
+			check = 1;
+			break ;
+		}
+		else
+			i++;
+	}
+	if (check == 1)
+		return (1);
+	else
+		return (-1);
+}
+
+int			ft_isflags(char c)
+{
+	int		i;
+	char	*flags;
+
+	i = 0;
+	flags = ".-0*";
+	while (flags[i])
+	{
+		if (flags[i] == c)
+			return (1);
+		i++;
+	}
+	return (-1);
+}
+
+int			ft_istypes(char c)
 {
 	int		i;
 	char	*types;

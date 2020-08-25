@@ -6,16 +6,16 @@
 /*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 12:29:55 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/25 00:18:07 by ugotheveny       ###   ########.fr       */
+/*   Updated: 2020/08/25 14:08:37 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Include/ft_printf.h"
 
-void	ft_u(va_list *args, t_prtf *struc)
+void				ft_u(va_list *args, t_prtf *struc)
 {
-	unsigned int		n;
-	char	*str;
+	unsigned int	n;
+	char			*str;
 
 	n = va_arg(*args, unsigned int);
 	if (struc->prec < 0)
@@ -30,7 +30,7 @@ void	ft_u(va_list *args, t_prtf *struc)
 	str = NULL;
 }
 
-void		ft_display_uint(char *str, t_prtf *struc)
+void				ft_display_uint(char *str, t_prtf *struc)
 {
 	if (struc->width < 0)
 	{
@@ -95,7 +95,7 @@ void		ft_display_uint(char *str, t_prtf *struc)
 	else if (struc->dot)
 	{
 		if (struc->prec == 0 && ft_atoi(str) == 0)
-				struc->len = struc->prec;
+			struc->len = struc->prec;
 		ft_fill('0', struc->prec - struc->len, struc);
 		ft_strto(str, struc->len, struc);
 	}

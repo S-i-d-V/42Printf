@@ -6,7 +6,7 @@
 /*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 12:28:48 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/21 18:28:52 by ugotheveny       ###   ########.fr       */
+/*   Updated: 2020/08/25 14:36:24 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ int			ft_printf(const char *format, ...)
 		{
 			struc.i++;
 			ft_parse((char *)format, &struc, &args);
-			if (ft_checktypes(format[struc.i]) != -1)
-				g_tab[ft_checktypes(format[struc.i])].tabFunc(&args, &struc);
+			if (ft_istypes(format[struc.i]) != -1)
+				g_tab[ft_istypes(format[struc.i])].tabfunc(&args, &struc);
 		}
 		else
 			ft_putchar(format[struc.i], &struc);
