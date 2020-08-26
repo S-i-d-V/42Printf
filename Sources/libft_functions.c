@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_mod.c                                        :+:      :+:    :+:   */
+/*   libft_functions.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 12:35:43 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/24 16:05:22 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/08/26 01:38:28 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ void	ft_putchar(char c, t_prtf *struc)
 	struc->ret++;
 }
 
-int		ft_strlen(char *str)
+int		ft_strlen(char *s)
 {
 	int i;
 
 	i = 0;
-	while (str[i])
+	while (s[i])
 		i++;
 	return (i);
 }
@@ -53,7 +53,7 @@ char	*ft_strdup(char *s)
 	return (dup);
 }
 
-int		ft_atoi(char *str)
+int		ft_atoi(char *s)
 {
 	int i;
 	int nb;
@@ -62,22 +62,22 @@ int		ft_atoi(char *str)
 	i = 0;
 	nb = 0;
 	nbsigne = 0;
-	while (str[i] == ' ' || (str[i] <= 13 && str[i] >= 9))
+	while (s[i] == ' ' || (s[i] <= 13 && s[i] >= 9))
 		i++;
-	if (str[i] == '-' || str[i] == '+')
+	if (s[i] == '-' || s[i] == '+')
 	{
-		if (str[i] == '-')
+		if (s[i] == '-')
 			nbsigne++;
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (s[i] >= '0' && s[i] <= '9')
 	{
-		nb = nb * 10 + (str[i] - 48);
+		nb = nb * 10 + (s[i] - 48);
 		i++;
 	}
 	if (nbsigne == 1)
 		nb = nb * -1;
-	if (ft_strlen(str) > 1 || str[0] == 0)
+	if (ft_strlen(s) > 1 || s[0] == 0)
 		return (-1);
 	return (nb);
 }

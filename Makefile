@@ -1,12 +1,12 @@
 NAME= libftprintf.a
 
-SRCS=	Sources/*.c
+SRCS =	Sources/*.c
 
-OBJS=	*.o
+OBJS =	*.o
 
 HEADER= Include/ft_printf.h
 	
-FLAGS= 	-Wall -Werror -Wextra
+FLAGS = 	-Wall -Werror -Wextra
 
 RM=	rm -rf
 

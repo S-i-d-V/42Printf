@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_s.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugtheven <ugtheven@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 12:28:55 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/19 16:16:18 by ugtheven         ###   ########.fr       */
+/*   Updated: 2020/08/26 02:20:42 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,40 @@
 
 void		ft_s(va_list *args, t_prtf *struc)
 {
-	char	*str;
+	char	*s;
 
-	str = va_arg(*args, char *);
-	if (str == NULL)
-		str = "(null)";
-	struc->len = ft_strlen(str);
-	ft_display_string(str, struc);
+	s = va_arg(*args, char *);
+	if (s == NULL)
+		s = "(null)";
+	struc->len = ft_strlen(s);
+	ft_display_s(s, struc);
 }
 
-void		ft_display_string(char *str, t_prtf *struc)
+void		ft_print_s(char *s, char fill, int side, t_prtf *struc)
+{
+	if (struc->dot)
+	{
+		if (side && struc->prec > struc->len)
+			ft_fill(fill, struc->width - struc->len, struc);
+		else if (side)
+			ft_fill(fill, struc->width - struc->prec, struc);
+		ft_strto(s, struc->prec, struc);
+		if (!side && struc->prec > struc->len)
+			ft_fill(fill, struc->width - struc->len, struc);
+		else if (!side)
+			ft_fill(fill, struc->width - struc->prec, struc);
+	}
+	else
+	{
+		if (side)
+			ft_fill(fill, struc->width - struc->len, struc);
+		ft_strto(s, struc->len, struc);
+		if (!side)
+			ft_fill(fill, struc->width - struc->len, struc);
+	}
+}
+
+void		ft_display_s(char *s, t_prtf *struc)
 {
 	if (struc->width < 0)
 	{
@@ -33,70 +57,13 @@ void		ft_display_string(char *str, t_prtf *struc)
 	if (struc->prec < 0)
 		struc->prec = struc->len;
 	if (struc->pad)
-	{
-		if (struc->dot)
-		{
-			if (struc->prec > struc->len)
-			{
-				ft_strto(str, struc->prec, struc);
-				ft_fill(' ', struc->width - struc->len, struc);
-			}
-			else
-			{
-				ft_strto(str, struc->prec, struc);
-				ft_fill(' ', struc->width - struc->prec, struc);
-			}
-		}
-		else
-		{
-			ft_strto(str, struc->len, struc);
-			ft_fill(' ', struc->width - struc->len, struc);
-		}
-	}
+		ft_print_s(s, ' ', 0, struc);
 	else if (struc->zero)
-	{
-		if (struc->dot)
-		{
-			if (struc->prec > struc->len)
-			{
-				ft_fill('0', struc->width - struc->len, struc);
-				ft_strto(str, struc->prec, struc);
-			}
-			else
-			{
-				ft_fill('0', struc->width - struc->prec, struc);
-				ft_strto(str, struc->prec, struc);
-			}
-		}
-		else
-		{
-			ft_fill('0', struc->width - struc->len, struc);
-			ft_strto(str, struc->len, struc);
-		}
-	}
+		ft_print_s(s, '0', 1, struc);
 	else if (!struc->pad && struc->width)
-	{
-		if (struc->dot)
-		{
-			if (struc->prec > struc->len)
-			{
-				ft_fill(' ', struc->width - struc->len, struc);
-				ft_strto(str, struc->prec, struc);
-			}
-			else
-			{
-				ft_fill(' ', struc->width - struc->prec, struc);
-				ft_strto(str, struc->prec, struc);
-			}
-		}
-		else
-		{
-			ft_fill(' ', struc->width - struc->len, struc);
-			ft_strto(str, struc->len, struc);
-		}
-	}
+		ft_print_s(s, ' ', 1, struc);
 	else if (struc->dot)
-		ft_strto(str, struc->prec, struc);
+		ft_strto(s, struc->prec, struc);
 	else
-		ft_strto(str, struc->len, struc);
+		ft_strto(s, struc->len, struc);
 }

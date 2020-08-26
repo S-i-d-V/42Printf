@@ -6,24 +6,24 @@
 /*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 12:44:54 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/25 14:46:48 by ugotheveny       ###   ########.fr       */
+/*   Updated: 2020/08/26 01:38:28 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Include/ft_printf.h"
 
-void		ft_strto(char *str, int n, t_prtf *struc)
+void		ft_strto(char *s, int n, t_prtf *struc)
 {
 	int		i;
 	int		len;
 
 	i = 0;
-	len = ft_strlen(str);
+	len = ft_strlen(s);
 	if (len < n)
 		n = len;
-	while (str[i] && i < n)
+	while (s[i] && i < n)
 	{
-		ft_putchar(str[i], struc);
+		ft_putchar(s[i], struc);
 		i++;
 	}
 }
@@ -40,21 +40,21 @@ void		ft_fill(char c, int n, t_prtf *struc)
 	}
 }
 
-char		*ft_revstr(char *str)
+char		*ft_revstr(char *s)
 {
 	int		i;
 	int		len;
 	char	tmp;
 
 	i = 0;
-	len = ft_strlen(str);
+	len = ft_strlen(s);
 	while (i < len)
 	{
 		len--;
-		tmp = str[i];
-		str[i] = str[len];
-		str[len] = tmp;
+		tmp = s[i];
+		s[i] = s[len];
+		s[len] = tmp;
 		i++;
 	}
-	return (str);
+	return (s);
 }

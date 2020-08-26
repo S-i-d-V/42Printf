@@ -6,7 +6,7 @@
 /*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 12:37:45 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/25 14:43:26 by ugotheveny       ###   ########.fr       */
+/*   Updated: 2020/08/26 01:41:01 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,33 +15,33 @@
 char				*ft_itoapos(int n)
 {
 	unsigned int	len;
-	char			*str;
+	char			*s;
 
 	if (n == -2147483648)
 		return (ft_strdup("2147483648"));
 	if (n < 0)
 		n = n * -1;
 	len = lennb(n);
-	str = malloc(sizeof(char) * len + 1);
-	if (str == NULL)
+	s = malloc(sizeof(char) * len + 1);
+	if (s == NULL)
 		return (NULL);
-	str[len--] = '\0';
+	s[len--] = '\0';
 	if (n == 0)
-		str[0] = '0';
+		s[0] = '0';
 	while (n != 0)
 	{
-		str[len] = (n % 10) + '0';
+		s[len] = (n % 10) + '0';
 		n = n / 10;
 		len--;
 	}
-	return (str);
+	return (s);
 }
 
 char				*ft_uitoa(unsigned int n)
 {
 	unsigned int	len;
 	unsigned int	tmp;
-	char			*str;
+	char			*s;
 
 	len = 0;
 	tmp = n;
@@ -50,39 +50,39 @@ char				*ft_uitoa(unsigned int n)
 		tmp = tmp / 10;
 		len++;
 	}
-	str = malloc(sizeof(char) * len + 1);
-	if (str == NULL)
+	s = malloc(sizeof(char) * len + 1);
+	if (s == NULL)
 		return (NULL);
-	str[len--] = '\0';
+	s[len--] = '\0';
 	if (n == 0)
-		str[0] = '0';
+		s[0] = '0';
 	while (n != 0)
 	{
-		str[len] = (n % 10) + '0';
+		s[len] = (n % 10) + '0';
 		n = n / 10;
 		len--;
 	}
-	return (str);
+	return (s);
 }
 
 char				*ft_itoa_hexa(unsigned long long n, char *base)
 {
 	int				len;
 	int				i;
-	char			*str;
+	char			*s;
 
 	len = ft_lenhexa(n);
 	i = 0;
 	if (n == 0)
 		return (ft_strdup("0"));
-	if ((str = malloc(sizeof(char) * (len + 1))) == NULL)
+	if ((s = malloc(sizeof(char) * (len + 1))) == NULL)
 		return (NULL);
 	while (n > 0)
 	{
-		str[i] = base[n % 16];
+		s[i] = base[n % 16];
 		n = n / 16;
 		i++;
 	}
-	str[i++] = '\0';
-	return (ft_revstr(str));
+	s[i++] = '\0';
+	return (ft_revstr(s));
 }
