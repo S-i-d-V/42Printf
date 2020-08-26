@@ -6,7 +6,7 @@
 /*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 12:35:43 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/26 01:38:28 by ugotheveny       ###   ########.fr       */
+/*   Updated: 2020/08/26 14:38:26 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,6 @@ int		ft_strlen(char *s)
 	while (s[i])
 		i++;
 	return (i);
-}
-
-int		ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
 }
 
 char	*ft_strdup(char *s)

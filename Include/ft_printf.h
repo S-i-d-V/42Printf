@@ -6,7 +6,7 @@
 /*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 12:11:39 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/26 02:31:28 by ugotheveny       ###   ########.fr       */
+/*   Updated: 2020/08/26 14:40:16 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ void			ft_print_p(char *s, char fill, int side, t_prtf *struc);
 void			ft_print_p_width(char *s, t_prtf *struc);
 void			ft_putchar(char c, t_prtf *struc);
 int				ft_strlen(char *s);
-int				ft_isdigit(int c);
 char			*ft_strdup(char *s);
 int				ft_atoi(char *s);
 char			*ft_itoapos(int n);
@@ -78,6 +77,7 @@ void			ft_fill(char c, int n, t_prtf *struc);
 char			*ft_revstr(char *s);
 int				ft_isflags(char c);
 int				ft_istypes(char c);
+int				ft_isdigit(int c);
 int				ft_err_parse(char *format, int i);
 void			innit_struct(t_prtf *struc);
 void			reset_flags(t_prtf *struc);

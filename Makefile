@@ -1,35 +1,54 @@
+.SILENT:
+
+RED =`tput setaf 1`
+GREEN =`tput setaf 2`
+CLEAR =`tput sgr0`
+
 NAME= libftprintf.a
 
-SRCS =	Sources/*.c
+SRCS =	ft_printf.c \
+			ft_c.c \
+			ft_di.c \
+			ft_p.c \
+			ft_prc.c \
+			ft_s.c \
+			ft_u.c \
+			ft_x.c \
+			ft_xx.c \
+			err_functions.c \
+			libft_functions.c \
+			parse_functions.c \
+			struct_functions.c \
+			supp_functions.c \
+			xtoa_functions.c \
+			xtoa_necessaries.c
 
-OBJS =	*.o
+OBJS =	$(SRC:.c=.o)
+SRCS_PATH = Sources/
 
-HEADER= Include/ft_printf.h
-	
-FLAGS = 	-Wall -Werror -Wextra
+SRC = $(addprefix $(SRCS_PATH),$(SRCS))
 
+CC = cc
+CFLAGS = -Wall -Werror -Wextra
 RM=	rm -rf
+
 
 all: $(NAME)
 
-$(NAME): objs $(HEADER)
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(NAME): $(OBJS) Include/ft_printf.h
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
-
-objs:
-	gcc $(FLAGS) -c $(SRCS)
+	echo "$(GREEN)$(NAME) compiled with succes.$(CLEAR)"
 
 clean:
 	$(RM) $(OBJS)
+	echo "$(RED)removed object files.$(CLEAR)"
 
 fclean: clean
 	$(RM) $(NAME)
-
-reset: fclean
-	$(RM) test
-
-test: all
-	gcc main.c  $(NAME) -o test
-	./test
+	echo "$(RED)removed $(NAME).$(CLEAR)"
 
 re: fclean all
