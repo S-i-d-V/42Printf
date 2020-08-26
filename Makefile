@@ -45,10 +45,10 @@ $(NAME): $(OBJS) Include/ft_printf.h
 
 clean:
 	$(RM) $(OBJS)
-	echo "$(RED)removed object files.$(CLEAR)"
+	echo "$(RED)object files removed.$(CLEAR)"
 
 fclean: clean
 	$(RM) $(NAME)
-	echo "$(RED)removed $(NAME).$(CLEAR)"
+	echo "$(RED)$(NAME) removed.$(CLEAR)"
 
 re: fclean all
