@@ -41,7 +41,7 @@ all: $(NAME)
 $(NAME): $(OBJS) Include/ft_printf.h
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
-	echo "$(GREEN)$(NAME) compiled with succes.$(CLEAR)"
+	echo "$(GREEN)$(NAME) compiled with success.$(CLEAR)"
 
 clean:
 	$(RM) $(OBJS)

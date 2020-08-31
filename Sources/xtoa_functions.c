@@ -6,7 +6,7 @@
 /*   By: ugotheveny <ugotheveny@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 12:37:45 by ugtheven          #+#    #+#             */
-/*   Updated: 2020/08/26 01:41:01 by ugotheveny       ###   ########.fr       */
+/*   Updated: 2020/08/31 16:47:20 by ugotheveny       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char				*ft_itoapos(int n)
 
 	if (n == -2147483648)
 		return (ft_strdup("2147483648"));
+	else if (n == 0)
+		return (ft_strdup("0"));
 	if (n < 0)
 		n = n * -1;
 	len = lennb(n);
@@ -26,8 +28,6 @@ char				*ft_itoapos(int n)
 	if (s == NULL)
 		return (NULL);
 	s[len--] = '\0';
-	if (n == 0)
-		s[0] = '0';
 	while (n != 0)
 	{
 		s[len] = (n % 10) + '0';
@@ -45,6 +45,8 @@ char				*ft_uitoa(unsigned int n)
 
 	len = 0;
 	tmp = n;
+	if (n == 0)
+		return (ft_strdup("0"));
 	while (tmp != 0)
 	{
 		tmp = tmp / 10;
@@ -54,8 +56,6 @@ char				*ft_uitoa(unsigned int n)
 	if (s == NULL)
 		return (NULL);
 	s[len--] = '\0';
-	if (n == 0)
-		s[0] = '0';
 	while (n != 0)
 	{
 		s[len] = (n % 10) + '0';
